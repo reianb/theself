@@ -18,5 +18,11 @@ R opens the door and someone calls her attention.
 
 <<person>>Your face looks disgusting today.<</person>>
  
-<<person1>>I think my outfit is cute.
-I think I look good.<</person1>>
+<a data-passage="outfit">Does the outfit look cute though?</a>
+<a data-passage="looks">I think I look good.</a>
+
+:: outfit
+<<person1>>Does the outfit look cute though?<</person1>>
+
+:: looks
+<<person1>>I think I look good.<</person1>>
