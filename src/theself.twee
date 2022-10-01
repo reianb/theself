@@ -14,15 +14,47 @@ The Self
 <<character 'person' 'assets/person.jpg'>>
 
 :: Start
-R opens the door and someone calls her attention.
+R opens the door and someone catches her attention.
 
 <<person>>Your face looks disgusting today.<</person>>
  
-<a data-passage="outfit">Does the outfit look cute though?</a>
-<a data-passage="looks">I think I look good.</a>
+[[Does the outfit look cute though?|outfit]]
+[[I think I look good.|looks]]
 
 :: outfit
-<<person1>>Does the outfit look cute though?<</person1>>
+R opens the door and someone catches her attention.
 
+<<person>>Your face looks disgusting today.<</person>>
+<<person1>>Does the outfit look cute though?<</person1>>
+<<person>>...sure...Your legs look too skinny though.<</person>>
+[[Does it?|agree]]
+[[I think it looks fine.|disagree]]
+/* end of passage */
 :: looks
+R opens the door and someone catches her attention.
+
+<<person>>Your face looks disgusting today.<</person>>
 <<person1>>I think I look good.<</person1>>
+<<person>>...sure...Your legs look too skinny though.<</person>>
+[[Does it?|agree]]
+/* end of passage */
+:: agree
+R opens the door and someone catches her attention.
+
+<<person>>Your face looks disgusting today.<</person>>
+<<person1>>Does the outfit look cute though?<</person1>>
+<<person>>...sure...Your legs look too skinny though.<</person>>
+<<person1>>Does it?<</person1>>
+<<person>>Yep, I think you should wear something that hides it.<</person>>
+
+:: disagree
+R opens the door and someone catches her attention.
+
+<<person>>Your face looks disgusting today.<</person>>
+<<person1>>Does the outfit look cute though?<</person1>>
+<<person>>...sure...Your legs look too skinny though.<</person>>
+<<person1>>I think it looks fine.<</person1>>
+<<person>>Ok, but your [[hair]] is a mess.<</person>>
+/*end passage */
+
+:: hair
