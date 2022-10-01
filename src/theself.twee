@@ -8,5 +8,15 @@
 :: StoryTitle
 The Self
 
+
+:: StoryInit
+<<character 'person1' 'assets/lisa.jpg'>>
+<<character 'person' 'assets/person.jpg'>>
+
 :: Start
-This is the start. Character meets other character.
+R opens the door and someone calls her attention.
+
+<<person>>Your face looks disgusting today.<</person>>
+ 
+<<person1>>I think my outfit is cute.
+I think I look good.<</person1>>
