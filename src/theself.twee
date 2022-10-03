@@ -58,3 +58,19 @@ R opens the door and someone catches her attention.
 /*end passage */
 
 :: hair
+R opens the door and someone catches her attention.
+
+<<person>>Your face looks disgusting today.<</person>>
+<<person1>>Does the outfit look cute though?<</person1>>
+<<person>>...sure...Your legs look too skinny though.<</person>>
+<<person1>>I think it looks fine.<</person1>>
+<<person>>Ok, but your hair is a mess.<</person>>
+<<person1>>Is [[this|braided]] better?
+or [[this|bun]]?
+<</person1>>
+
+:: braided
+A photo/drawing of braided hair
+
+:: bun
+A photo/drawing of braided hair
