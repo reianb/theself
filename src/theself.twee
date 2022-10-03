@@ -13,15 +13,10 @@ The Self
 <<character 'person1' 'assets/lisa.jpg'>>
 <<character 'person' 'assets/person.jpg'>>
 
+<<newmeter 'confidence'>>
+    <<colors 'green' 'red'>>
+<</newmeter>>
 <<set _confidence to 75, _maxConfidence to 100>>
-<<newmeter 'timer' 0>>
-    <<colors 'red' 'green'>>
-    <<animation 10s linear>>
-<</newmeter>>
-<<newmeter 'confidence' 1>>
-    <<sizing '250px'>>
-    <<label 'Confidence'>>
-<</newmeter>>
 
 :: Start
 R opens the door and someone catches her attention.
@@ -31,90 +26,137 @@ R opens the door and someone catches her attention.
 [[Does the outfit look cute though?|outfit]]
 [[I think I look good.|looks]]
 
+/*outfit passage */
 :: outfit
-R opens the door and someone catches her attention.
-
-<<person>>Your face looks disgusting today.<</person>>
 <<person1>>Does the outfit look cute though?<</person1>>
 <<person>>...sure...Your legs look too skinny though.<</person>>
+
 [[Does it?|agree]]
 [[I think it looks fine.|disagree]]
-/* end of passage */
-:: looks
-R opens the door and someone catches her attention.
+/* end of outfit passage */
 
-<<person>>Your face looks disgusting today.<</person>>
+/*looks passage */
+:: looks
 <<person1>>I think I look good.<</person1>>
 <<person>>...sure...Your legs look too skinny though.<</person>>
+
 [[Does it?|agree]]
-/* end of passage */
+[[I think it looks fine.|disagree]]
+/* end of looks passage */
+
+/*agree passage*/
 :: agree
-R opens the door and someone catches her attention.
-
-<<person>>Your face looks disgusting today.<</person>>
-<<person1>>Does the outfit look cute though?<</person1>>
-<<person>>...sure...Your legs look too skinny though.<</person>>
 <<person1>>Does it?<</person1>>
 <<person>>Yep, I think you should wear something that hides it.<</person>>
 
-[[(Examine your legs)|likeOutfit]]
+[[(Examine your legs)|leg]]
 [[I think it's fine. I need to fix my hair though.|hair]]
+/* end of agree passage */
 
-:: likeOutfit
-R opens the door and someone catches her attention.
-
-<<person>>Your face looks disgusting today.<</person>>
-<<person1>>Does the outfit look cute though?<</person1>>
-<<person>>...sure...Your legs look too skinny though.<</person>>
-<<person1>>Does it?<</person1>>
-<<person>>Yep, I think you should wear something that hides it.<</person>>
+/*leg passage */
+:: leg
 Person 1 takes a look at her legs, deciding if it looks good enough to show.
 
+[[I like what I'm wearing though|likeOutfit]]
+[[I think it looks fine.|disagree]]
+/*end of leg passage */
 
 :: disagree
-R opens the door and someone catches her attention.
-
-<<person>>Your face looks disgusting today.<</person>>
-<<person1>>Does the outfit look cute though?<</person1>>
-<<person>>...sure...Your legs look too skinny though.<</person>>
-<<person1>>I think it looks fine.<</person1>>
-<<person>>Ok, but your [[hair]] is a mess.<</person>>
-/*end passage */
-
-:: hair
-R opens the door and someone catches her attention.
-
-<<person>>Your face looks disgusting today.<</person>>
-<<person1>>Does the outfit look cute though?<</person1>>
-<<person>>...sure...Your legs look too skinny though.<</person>>
 <<person1>>I think it looks fine.<</person1>>
 <<person>>Ok, but your hair is a mess.<</person>>
-<<person1>>Is [[this|braided]] better?
-or [[this|bun]]?
-<</person1>>
 
+[[(Try on hairstyles)|hair]]
+[[I don't care. I can't do much with it.|noCare]]
+/*end passage */
+
+/*noCare passage */
+:: noCare
+<<person1>>I don't care. I can't do much with it anyway. It's too flat.<</person1>>
+<<person>>Well, your chest is too flat for that top too.<</person>>
+
+[[take shirt off|naked]]
+/*end of noCare passage */
+
+/*hair passage */
+:: hair
+<<person1>>Is [[this|thinHair]] better?
+or [[this|thinHair]]?
+<</person1>>
+/*end of hair passage */
 /* maybe the photos are pop-ups??*/
 :: braided
 [[A photo/drawing of braided hair|thinHair]]
 
 :: bun
 [[A photo/drawing of braided hair|thinHair]]
+/*end of photo pop-up */
 
+/*thinHair passage */
 :: thinHair
-R opens the door and someone catches her attention.
-
-<<person>>Your face looks disgusting today.<</person>>
-<<person1>>Does the outfit look cute though?<</person1>>
-<<person>>...sure...Your legs look too skinny though.<</person>>
-<<person1>>I think it looks fine.<</person1>>
-<<person>>Ok, but your hair is a mess.<</person>>
-<<person1>>Is [[this|braided]] better?
-or [[this|bun]]?
-<</person1>>
 <<person>>UGH. Your hair is so flat and thin.<</person>>
+
+[[I think I'll braid my hair|aCup]]
+[[I can try other hairstyles|diffHair]]
+/*end of thin hair passage */
+
+/*aCup passage */
+:: aCup
+<<person1>>I think I'll braid my hair.<</person1>>
+<<person>>Horrible. Anyway, that top does not work well with your A cups.<</person>>
+
+[[I like what I'm wearing though|likeOutfit]]
+[[(take shirt off)|naked]]
+/*end of aCup passage */
+
+/*likeOutfit passage */
+:: likeOutfit
+<<person1>>I like what I'm wearing though.<</person1>>
+
+[[(take shirt off)|naked]]
+[[I'll stick with this outfit|sameOutfit]]
+/*end of likeOutfit passage */
+
+/*naked passage */
+:: naked
+Person 1 takes her shirt off
+<<person1>>There's literally nothing there. Maybe a little bump, but it's basically nothing.<</person1>>
+<<person>>...did you just... strip in front of me?
+God, your torso looks like a boy's.<</person>>
+
+[[Woah. Ok. I'm not THAT flat...|defend]]
+[[(laugh)|laugh]]
+/*end of naked passage */
+
+/*laugh passage */
+:: laugh
+<<person1>>HAHAHAAHHAAAAHAHA That was lowkey funny.<</person1>>
+<<person>>Just put your shirt back on, please<</person>>
+
+[[(put shirt back on)|dressed]]
+[[(stay shirtless)|something]]
+/*end of laugh passage */
+
+/*defend passage */
+:: defend
+<<person1>>Woah. Ok. I'm not THAT flat...<</person1>>
+<<person>>Just put your shirt back on, please<</person>>
+
+[[(put shirt back on)|dressed]]
+[[(stay shirtless|something)]]
+/*end of defend passage */
+
+/*dressed passage */
+:: dressed
+Person 1 puts her shirt back on and starts questioning
+<<person1>>Do you think I'm interesting enough to be around?<</person1>>
+<<person>>Do YOU think you're interesting enough to be around?<</person>>
+/*end of dressed passage */
+
+:: sameOutfit
+<<person1>>I'll stick with this outfit.<</person1>>
+<<person>><</person>>
 
 :: PassageFooter
 <div style="padding-top:40px">
-<<set _stamina to 75, _maxStamina to 75>>\
 Confidence: <<showmeter 'confidence' `_confidence / _maxConfidence`>>
 </div>
