@@ -13,6 +13,16 @@ The Self
 <<character 'person1' 'assets/lisa.jpg'>>
 <<character 'person' 'assets/person.jpg'>>
 
+<<set _confidence to 75, _maxConfidence to 100>>
+<<newmeter 'timer' 0>>
+    <<colors 'red' 'green'>>
+    <<animation 10s linear>>
+<</newmeter>>
+<<newmeter 'confidence' 1>>
+    <<sizing '250px'>>
+    <<label 'Confidence'>>
+<</newmeter>>
+
 :: Start
 R opens the door and someone catches her attention.
 
@@ -74,3 +84,9 @@ A photo/drawing of braided hair
 
 :: bun
 A photo/drawing of braided hair
+
+:: PassageFooter
+<div style="padding-top:40px">
+<<set _stamina to 75, _maxStamina to 75>>\
+Confidence: <<showmeter 'confidence' `_confidence / _maxConfidence`>>
+</div>
