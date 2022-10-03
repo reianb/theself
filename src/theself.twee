@@ -57,6 +57,20 @@ R opens the door and someone catches her attention.
 <<person1>>Does it?<</person1>>
 <<person>>Yep, I think you should wear something that hides it.<</person>>
 
+[[(Examine your legs)|likeOutfit]]
+[[I think it's fine. I need to fix my hair though.|hair]]
+
+:: likeOutfit
+R opens the door and someone catches her attention.
+
+<<person>>Your face looks disgusting today.<</person>>
+<<person1>>Does the outfit look cute though?<</person1>>
+<<person>>...sure...Your legs look too skinny though.<</person>>
+<<person1>>Does it?<</person1>>
+<<person>>Yep, I think you should wear something that hides it.<</person>>
+Person 1 takes a look at her legs, deciding if it looks good enough to show.
+
+
 :: disagree
 R opens the door and someone catches her attention.
 
@@ -79,11 +93,25 @@ R opens the door and someone catches her attention.
 or [[this|bun]]?
 <</person1>>
 
+/* maybe the photos are pop-ups??*/
 :: braided
-A photo/drawing of braided hair
+[[A photo/drawing of braided hair|thinHair]]
 
 :: bun
-A photo/drawing of braided hair
+[[A photo/drawing of braided hair|thinHair]]
+
+:: thinHair
+R opens the door and someone catches her attention.
+
+<<person>>Your face looks disgusting today.<</person>>
+<<person1>>Does the outfit look cute though?<</person1>>
+<<person>>...sure...Your legs look too skinny though.<</person>>
+<<person1>>I think it looks fine.<</person1>>
+<<person>>Ok, but your hair is a mess.<</person>>
+<<person1>>Is [[this|braided]] better?
+or [[this|bun]]?
+<</person1>>
+<<person>>UGH. Your hair is so flat and thin.<</person>>
 
 :: PassageFooter
 <div style="padding-top:40px">
