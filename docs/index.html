@@ -115,6 +115,7 @@ a{
 ;!function(){"use strict";var a=new Map;function t(t,e,r){if(void 0===r&&e&&(r=e,e=null),State.length)throw new Error("addCharacter() -> must be called before story starts");t&&r?(a.has(t)&&console.error('addCharacter() -> overwriting character "'+t+'"'),a.set(t,{displayName:e,image:r})):console.error("addCharacter() -> invalid arguments")}function e(t,e,r,s){var n=$(document.createElement("div")).addClass(Util.slugify(e)+" say"),i=a.has(e)?a.get(e).image:null,o=$(document.createElement("img")).attr("src",s||i||"");o.attr("src")&&o.attr("src").trim()&&n.append(o);var c=e.toUpperFirst();return a.has(e)&&a.get(e).displayName&&(c=a.get(e).displayName),n.append($(document.createElement("p")).wiki(c)).append($(document.createElement("p")).wiki(r)),t&&(t instanceof $||(t=$(t)),n.appendTo(t)),n}setup.say=e,setup.addCharacter=t,Macro.add("character",{handler:function(){t(this.args[0],this.args[1],this.args[2])}}),$(document).one(":passagestart",(function(){var t=Array.from(a.keys());t.push("say"),Macro.add(t,{tags:null,handler:function(){"say"!==this.name?e(this.output,this.name,this.payload[0].contents):e(this.output,this.args[0],this.payload[0].contents,this.args[1])}})}))}();
 // end speech.min.js</script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,100" size="100,100">&lt;&lt;character &#39;person1&#39; &#39;assets/lisa.jpg&#39;&gt;&gt;
 &lt;&lt;character &#39;person&#39; &#39;assets/person.jpg&#39;&gt;&gt;
+&lt;&lt;set $fixHair to false&gt;&gt;
 
 &lt;&lt;newmeter &#39;confidence&#39;&gt;&gt;
     &lt;&lt;colors &#39;green&#39; &#39;red&#39;&gt;&gt;
@@ -164,7 +165,8 @@ a{
 [[take shirt off|naked]]
 /*end of noCare passage */
 
-/*hair passage */</tw-passagedata><tw-passagedata pid="9" name="hair" tags="" position="1100,100" size="100,100">&lt;&lt;person1&gt;&gt;Is [[this|thinHair]] better?
+/*hair passage */</tw-passagedata><tw-passagedata pid="9" name="hair" tags="" position="1100,100" size="100,100">&lt;&lt;set $fixHair to true&gt;&gt;
+&lt;&lt;person1&gt;&gt;Is [[this|thinHair]] better?
 or [[this|thinHair]]?
 &lt;&lt;/person1&gt;&gt;
 /*end of hair passage */
@@ -216,8 +218,19 @@ God, your torso looks like a boy&#39;s.&lt;&lt;/person&gt;&gt;
 /*dressed passage */</tw-passagedata><tw-passagedata pid="18" name="dressed" tags="" position="975,225" size="100,100">Person 1 puts her shirt back on and starts questioning
 &lt;&lt;person1&gt;&gt;Do you think I&#39;m interesting enough to be around?&lt;&lt;/person1&gt;&gt;
 &lt;&lt;person&gt;&gt;Do YOU think you&#39;re interesting enough to be around?&lt;&lt;/person&gt;&gt;
-/*end of dressed passage */</tw-passagedata><tw-passagedata pid="19" name="sameOutfit" tags="" position="1100,225" size="100,100">&lt;&lt;person1&gt;&gt;I&#39;ll stick with this outfit.&lt;&lt;/person1&gt;&gt;
-&lt;&lt;person&gt;&gt;&lt;&lt;/person&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="PassageFooter" tags="" position="1225,225" size="100,100">&lt;div style=&quot;padding-top:40px&quot;&gt;
+/*end of dressed passage */
+
+/*sameOutfit passage */</tw-passagedata><tw-passagedata pid="19" name="sameOutfit" tags="" position="1100,225" size="100,100">&lt;&lt;person1&gt;&gt;I&#39;ll stick with this outfit.&lt;&lt;/person1&gt;&gt;
+
+&lt;&lt;if $fixHair&gt;&gt;/*if fixHair is true */
+    &lt;&lt;person&gt;&gt;idk what to do with you&lt;&lt;/person&gt;&gt;
+&lt;&lt;else&gt;&gt;
+    &lt;&lt;person&gt;&gt;Fix your hair.&lt;&lt;/person&gt;&gt;
+
+    [[try on hairstyles|hair]]
+    [[I don&#39;t think my hair is the problem]]
+&lt;&lt;/if&gt;&gt;
+/*end of sameOutfit passage */</tw-passagedata><tw-passagedata pid="20" name="PassageFooter" tags="" position="1225,225" size="100,100">&lt;div style=&quot;padding-top:40px&quot;&gt;
 Confidence: &lt;&lt;showmeter &#39;confidence&#39; `_confidence / _maxConfidence`&gt;&gt;
 &lt;/div&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">

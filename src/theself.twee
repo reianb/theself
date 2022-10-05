@@ -12,6 +12,7 @@ The Self
 :: StoryInit
 <<character 'person1' 'assets/lisa.jpg'>>
 <<character 'person' 'assets/person.jpg'>>
+<<set $fixHair to false>>
 
 <<newmeter 'confidence'>>
     <<colors 'green' 'red'>>
@@ -79,6 +80,7 @@ Person 1 takes a look at her legs, deciding if it looks good enough to show.
 
 /*hair passage */
 :: hair
+<<set $fixHair to true>>
 <<person1>>Is [[this|thinHair]] better?
 or [[this|thinHair]]?
 <</person1>>
@@ -152,10 +154,19 @@ Person 1 puts her shirt back on and starts questioning
 <<person>>Do YOU think you're interesting enough to be around?<</person>>
 /*end of dressed passage */
 
+/*sameOutfit passage */
 :: sameOutfit
 <<person1>>I'll stick with this outfit.<</person1>>
-<<person>><</person>>
 
+<<if $fixHair>>/*if fixHair is true */
+    <<person>>idk what to do with you<</person>>
+<<else>>
+    <<person>>Fix your hair.<</person>>
+
+    [[try on hairstyles|hair]]
+    [[I don't think my hair is the problem]]
+<</if>>
+/*end of sameOutfit passage */
 :: PassageFooter
 <div style="padding-top:40px">
 Confidence: <<showmeter 'confidence' `_confidence / _maxConfidence`>>
