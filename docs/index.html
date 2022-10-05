@@ -116,6 +116,7 @@ a{
 // end speech.min.js</script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,100" size="100,100">&lt;&lt;character &#39;person1&#39; &#39;assets/lisa.jpg&#39;&gt;&gt;
 &lt;&lt;character &#39;person&#39; &#39;assets/person.jpg&#39;&gt;&gt;
 &lt;&lt;set $fixHair to false&gt;&gt;
+&lt;&lt;set $naked to false&gt;&gt;
 
 &lt;&lt;newmeter &#39;confidence&#39;&gt;&gt;
     &lt;&lt;colors &#39;green&#39; &#39;red&#39;&gt;&gt;
@@ -176,24 +177,30 @@ or [[this|thinHair]]?
 /*thinHair passage */</tw-passagedata><tw-passagedata pid="12" name="thinHair" tags="" position="225,225" size="100,100">&lt;&lt;person&gt;&gt;UGH. Your hair is so flat and thin.&lt;&lt;/person&gt;&gt;
 
 [[I think I&#39;ll braid my hair|aCup]]
-[[I can try other hairstyles|diffHair]]
+[[I can try other hairstyles..|diffHair]]
 /*end of thin hair passage */
 
-/*aCup passage */</tw-passagedata><tw-passagedata pid="13" name="aCup" tags="" position="350,225" size="100,100">&lt;&lt;person1&gt;&gt;I think I&#39;ll braid my hair.&lt;&lt;/person1&gt;&gt;
+/*diffHair passage */</tw-passagedata><tw-passagedata pid="13" name="diffHair" tags="" position="350,225" size="100,100">&lt;&lt;person1&gt;&gt;I can try other hairstyles..&lt;&lt;/person1&gt;&gt;
+&lt;&lt;person&gt;&gt;I don&#39;t think any hairstyle will suit your flat hair. That top doesn&#39;t even work with your flat chest.&lt;&lt;/person&gt;&gt;
+
+[[(take shirt off)|naked]]
+[[I like what I&#39;m wearing though|likeOutfit]]
+/*aCup passage */</tw-passagedata><tw-passagedata pid="14" name="aCup" tags="" position="475,225" size="100,100">&lt;&lt;person1&gt;&gt;I think I&#39;ll braid my hair.&lt;&lt;/person1&gt;&gt;
 &lt;&lt;person&gt;&gt;Horrible. Anyway, that top does not work well with your A cups.&lt;&lt;/person&gt;&gt;
 
 [[I like what I&#39;m wearing though|likeOutfit]]
 [[(take shirt off)|naked]]
 /*end of aCup passage */
 
-/*likeOutfit passage */</tw-passagedata><tw-passagedata pid="14" name="likeOutfit" tags="" position="475,225" size="100,100">&lt;&lt;person1&gt;&gt;I like what I&#39;m wearing though.&lt;&lt;/person1&gt;&gt;
+/*likeOutfit passage */</tw-passagedata><tw-passagedata pid="15" name="likeOutfit" tags="" position="600,225" size="100,100">&lt;&lt;person1&gt;&gt;I like what I&#39;m wearing though.&lt;&lt;/person1&gt;&gt;
 
 [[(take shirt off)|naked]]
 [[I&#39;ll stick with this outfit|sameOutfit]]
 /*end of likeOutfit passage */
 
-/*naked passage */</tw-passagedata><tw-passagedata pid="15" name="naked" tags="" position="600,225" size="100,100">Person 1 takes her shirt off
-&lt;&lt;person1&gt;&gt;There&#39;s literally nothing there. Maybe a little bump, but it&#39;s basically nothing.&lt;&lt;/person1&gt;&gt;
+/*naked passage */</tw-passagedata><tw-passagedata pid="16" name="naked" tags="" position="725,225" size="100,100">&lt;&lt;set $naked to true&gt;&gt;
+Person 1 takes her shirt off
+&lt;&lt;person1&gt;&gt; I know.. There&#39;s literally nothing there. Maybe a little bump, but it&#39;s basically nothing.&lt;&lt;/person1&gt;&gt;
 &lt;&lt;person&gt;&gt;...did you just... strip in front of me?
 God, your torso looks like a boy&#39;s.&lt;&lt;/person&gt;&gt;
 
@@ -201,36 +208,51 @@ God, your torso looks like a boy&#39;s.&lt;&lt;/person&gt;&gt;
 [[(laugh)|laugh]]
 /*end of naked passage */
 
-/*laugh passage */</tw-passagedata><tw-passagedata pid="16" name="laugh" tags="" position="725,225" size="100,100">&lt;&lt;person1&gt;&gt;HAHAHAAHHAAAAHAHA That was lowkey funny.&lt;&lt;/person1&gt;&gt;
+/*laugh passage */</tw-passagedata><tw-passagedata pid="17" name="laugh" tags="" position="850,225" size="100,100">&lt;&lt;person1&gt;&gt;HAHAHAAHHAAAAHAHA That was lowkey funny.&lt;&lt;/person1&gt;&gt;
 &lt;&lt;person&gt;&gt;Just put your shirt back on, please&lt;&lt;/person&gt;&gt;
 
 [[(put shirt back on)|dressed]]
-[[(stay shirtless)|something]]
+[[(stay shirtless)|shirtless]]
 /*end of laugh passage */
 
-/*defend passage */</tw-passagedata><tw-passagedata pid="17" name="defend" tags="" position="850,225" size="100,100">&lt;&lt;person1&gt;&gt;Woah. Ok. I&#39;m not THAT flat...&lt;&lt;/person1&gt;&gt;
+/*defend passage */</tw-passagedata><tw-passagedata pid="18" name="defend" tags="" position="975,225" size="100,100">&lt;&lt;person1&gt;&gt;Woah. Ok. I&#39;m not THAT flat...&lt;&lt;/person1&gt;&gt;
 &lt;&lt;person&gt;&gt;Just put your shirt back on, please&lt;&lt;/person&gt;&gt;
 
 [[(put shirt back on)|dressed]]
-[[(stay shirtless|something)]]
+[[(stay shirtless)|shirtless]]
 /*end of defend passage */
 
-/*dressed passage */</tw-passagedata><tw-passagedata pid="18" name="dressed" tags="" position="975,225" size="100,100">Person 1 puts her shirt back on and starts questioning
+/*shirtless passage */</tw-passagedata><tw-passagedata pid="19" name="shirtless" tags="" position="1100,225" size="100,100">&lt;&lt;person1&gt;&gt;Is it really that bad? Do you think there&#39;s at least one person that thinks I&#39;m attractive?&lt;&lt;/person1&gt;&gt;
+&lt;&lt;person&gt;&gt;I think you should &lt;&lt;/person&gt;&gt;
+/*dressed passage */</tw-passagedata><tw-passagedata pid="20" name="dressed" tags="" position="1225,225" size="100,100">&lt;&lt;if $naked&gt;&gt;
+Person 1 puts her shirt back on and starts questioning her
+&lt;&lt;/if&gt;&gt;
+
 &lt;&lt;person1&gt;&gt;Do you think I&#39;m interesting enough to be around?&lt;&lt;/person1&gt;&gt;
 &lt;&lt;person&gt;&gt;Do YOU think you&#39;re interesting enough to be around?&lt;&lt;/person&gt;&gt;
 /*end of dressed passage */
 
-/*sameOutfit passage */</tw-passagedata><tw-passagedata pid="19" name="sameOutfit" tags="" position="1100,225" size="100,100">&lt;&lt;person1&gt;&gt;I&#39;ll stick with this outfit.&lt;&lt;/person1&gt;&gt;
+/*sameOutfit passage */</tw-passagedata><tw-passagedata pid="21" name="sameOutfit" tags="" position="100,350" size="100,100">&lt;&lt;person1&gt;&gt;I&#39;ll stick with this outfit.&lt;&lt;/person1&gt;&gt;
 
 &lt;&lt;if $fixHair&gt;&gt;/*if fixHair is true */
-    &lt;&lt;person&gt;&gt;idk what to do with you&lt;&lt;/person&gt;&gt;
+    &lt;&lt;person&gt;&gt;So.. what now?&lt;&lt;/person&gt;&gt;
+
+    [[I think I&#39;m done talking to myself for the day|mirror]]
+    [[(question your being)|dressed]]
 &lt;&lt;else&gt;&gt;
     &lt;&lt;person&gt;&gt;Fix your hair.&lt;&lt;/person&gt;&gt;
 
     [[try on hairstyles|hair]]
-    [[I don&#39;t think my hair is the problem]]
 &lt;&lt;/if&gt;&gt;
-/*end of sameOutfit passage */</tw-passagedata><tw-passagedata pid="20" name="PassageFooter" tags="" position="1225,225" size="100,100">&lt;div style=&quot;padding-top:40px&quot;&gt;
+/*end of sameOutfit passage */
+
+/*mirror passage */</tw-passagedata><tw-passagedata pid="22" name="mirror" tags="" position="225,350" size="100,100">&lt;&lt;person1&gt;&gt;I think I&#39;m done talking to myself for the day.&lt;&lt;/person1&gt;&gt;
+&lt;&lt;person&gt;&gt;Wait wha--&lt;&lt;/person&gt;&gt;
+
+Person 1 takes one last look at her reflection on the mirror then walks away.
+/*probably add an illustration of mirror or if you have time add short animation */
+
+/*end of mirror passage */</tw-passagedata><tw-passagedata pid="23" name="PassageFooter" tags="" position="350,350" size="100,100">&lt;div style=&quot;padding-top:40px&quot;&gt;
 Confidence: &lt;&lt;showmeter &#39;confidence&#39; `_confidence / _maxConfidence`&gt;&gt;
 &lt;/div&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">

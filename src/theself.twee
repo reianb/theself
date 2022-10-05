@@ -13,6 +13,7 @@ The Self
 <<character 'person1' 'assets/lisa.jpg'>>
 <<character 'person' 'assets/person.jpg'>>
 <<set $fixHair to false>>
+<<set $naked to false>>
 
 <<newmeter 'confidence'>>
     <<colors 'green' 'red'>>
@@ -98,9 +99,16 @@ or [[this|thinHair]]?
 <<person>>UGH. Your hair is so flat and thin.<</person>>
 
 [[I think I'll braid my hair|aCup]]
-[[I can try other hairstyles|diffHair]]
+[[I can try other hairstyles..|diffHair]]
 /*end of thin hair passage */
 
+/*diffHair passage */
+:: diffHair
+<<person1>>I can try other hairstyles..<</person1>>
+<<person>>I don't think any hairstyle will suit your flat hair. That top doesn't even work with your flat chest.<</person>>
+
+[[(take shirt off)|naked]]
+[[I like what I'm wearing though|likeOutfit]]
 /*aCup passage */
 :: aCup
 <<person1>>I think I'll braid my hair.<</person1>>
@@ -120,8 +128,9 @@ or [[this|thinHair]]?
 
 /*naked passage */
 :: naked
+<<set $naked to true>>
 Person 1 takes her shirt off
-<<person1>>There's literally nothing there. Maybe a little bump, but it's basically nothing.<</person1>>
+<<person1>> I know.. There's literally nothing there. Maybe a little bump, but it's basically nothing.<</person1>>
 <<person>>...did you just... strip in front of me?
 God, your torso looks like a boy's.<</person>>
 
@@ -135,7 +144,7 @@ God, your torso looks like a boy's.<</person>>
 <<person>>Just put your shirt back on, please<</person>>
 
 [[(put shirt back on)|dressed]]
-[[(stay shirtless)|something]]
+[[(stay shirtless)|shirtless]]
 /*end of laugh passage */
 
 /*defend passage */
@@ -144,12 +153,19 @@ God, your torso looks like a boy's.<</person>>
 <<person>>Just put your shirt back on, please<</person>>
 
 [[(put shirt back on)|dressed]]
-[[(stay shirtless|something)]]
+[[(stay shirtless)|shirtless]]
 /*end of defend passage */
 
+/*shirtless passage */
+:: shirtless
+<<person1>>Is it really that bad? Do you think there's at least one person that thinks I'm attractive?<</person1>>
+<<person>>I think you should <</person>>
 /*dressed passage */
 :: dressed
-Person 1 puts her shirt back on and starts questioning
+<<if $naked>>
+Person 1 puts her shirt back on and starts questioning her
+<</if>>
+
 <<person1>>Do you think I'm interesting enough to be around?<</person1>>
 <<person>>Do YOU think you're interesting enough to be around?<</person>>
 /*end of dressed passage */
@@ -159,14 +175,27 @@ Person 1 puts her shirt back on and starts questioning
 <<person1>>I'll stick with this outfit.<</person1>>
 
 <<if $fixHair>>/*if fixHair is true */
-    <<person>>idk what to do with you<</person>>
+    <<person>>So.. what now?<</person>>
+
+    [[I think I'm done talking to myself for the day|mirror]]
+    [[(question your being)|dressed]]
 <<else>>
     <<person>>Fix your hair.<</person>>
 
     [[try on hairstyles|hair]]
-    [[I don't think my hair is the problem]]
 <</if>>
 /*end of sameOutfit passage */
+
+/*mirror passage */
+:: mirror
+<<person1>>I think I'm done talking to myself for the day.<</person1>>
+<<person>>Wait wha--<</person>>
+
+Person 1 takes one last look at her reflection on the mirror then walks away.
+/*probably add an illustration of mirror or if you have time add short animation */
+
+/*end of mirror passage */
+
 :: PassageFooter
 <div style="padding-top:40px">
 Confidence: <<showmeter 'confidence' `_confidence / _maxConfidence`>>
