@@ -164,6 +164,7 @@ a{
 &lt;&lt;person&gt;&gt;Well, your chest is too flat for that top too.&lt;&lt;/person&gt;&gt;
 
 [[take shirt off|naked]]
+[[I like what I&#39;m wearing though|likeOutfit]]
 /*end of noCare passage */
 
 /*hair passage */</tw-passagedata><tw-passagedata pid="9" name="hair" tags="" position="1100,100" size="100,100">&lt;&lt;set $fixHair to true&gt;&gt;
@@ -230,29 +231,36 @@ Person 1 puts her shirt back on and starts questioning her
 
 &lt;&lt;person1&gt;&gt;Do you think I&#39;m interesting enough to be around?&lt;&lt;/person1&gt;&gt;
 &lt;&lt;person&gt;&gt;Do YOU think you&#39;re interesting enough to be around?&lt;&lt;/person&gt;&gt;
+&lt;&lt;person1&gt;&gt;um...&lt;&lt;/person1&gt;&gt;
+
+[[Maybe?? I think I can be.|bonusPoint]]
+[[I think I&#39;m done talking to myself for the day|mirror]]
 /*end of dressed passage */
 
-/*sameOutfit passage */</tw-passagedata><tw-passagedata pid="21" name="sameOutfit" tags="" position="100,350" size="100,100">&lt;&lt;person1&gt;&gt;I&#39;ll stick with this outfit.&lt;&lt;/person1&gt;&gt;
+/*bonusPoint passage*//*add to Confidence */</tw-passagedata><tw-passagedata pid="21" name="bonusPoint" tags="" position="100,350" size="100,100">&lt;&lt;person1&gt;&gt;Maybe?? I think I can be.&lt;&lt;/person1&gt;&gt;
+&lt;&lt;person&gt;&gt;Wow, you sound so confident.&lt;&lt;/person&gt;&gt;
 
-&lt;&lt;if $fixHair&gt;&gt;/*if fixHair is true */
-    &lt;&lt;person&gt;&gt;So.. what now?&lt;&lt;/person&gt;&gt;
+[[I think I&#39;m done talking to myself for the day|mirror]]
+/*end of bonusPoint passage */
+
+/*sameOutfit passage */</tw-passagedata><tw-passagedata pid="22" name="sameOutfit" tags="" position="225,350" size="100,100">&lt;&lt;person1&gt;&gt;I&#39;ll stick with this outfit.&lt;&lt;/person1&gt;&gt;
+&lt;&lt;if $fixHair&gt;&gt;/*if fixHair is true */&lt;&lt;person&gt;&gt;So.. what now?&lt;&lt;/person&gt;&gt;
 
     [[I think I&#39;m done talking to myself for the day|mirror]]
     [[(question your being)|dressed]]
-&lt;&lt;else&gt;&gt;
-    &lt;&lt;person&gt;&gt;Fix your hair.&lt;&lt;/person&gt;&gt;
+&lt;&lt;else&gt;&gt;&lt;&lt;person&gt;&gt;Fix your hair.&lt;&lt;/person&gt;&gt;
 
     [[try on hairstyles|hair]]
 &lt;&lt;/if&gt;&gt;
 /*end of sameOutfit passage */
 
-/*mirror passage */</tw-passagedata><tw-passagedata pid="22" name="mirror" tags="" position="225,350" size="100,100">&lt;&lt;person1&gt;&gt;I think I&#39;m done talking to myself for the day.&lt;&lt;/person1&gt;&gt;
+/*mirror passage */</tw-passagedata><tw-passagedata pid="23" name="mirror" tags="" position="350,350" size="100,100">&lt;&lt;person1&gt;&gt;I think I&#39;m done talking to myself for the day.&lt;&lt;/person1&gt;&gt;
 &lt;&lt;person&gt;&gt;Wait wha--&lt;&lt;/person&gt;&gt;
 
 Person 1 takes one last look at her reflection on the mirror then walks away.
 /*probably add an illustration of mirror or if you have time add short animation */
 
-/*end of mirror passage */</tw-passagedata><tw-passagedata pid="23" name="PassageFooter" tags="" position="350,350" size="100,100">&lt;div style=&quot;padding-top:40px&quot;&gt;
+/*end of mirror passage */</tw-passagedata><tw-passagedata pid="24" name="PassageFooter" tags="" position="475,350" size="100,100">&lt;div style=&quot;padding-top:40px&quot;&gt;
 Confidence: &lt;&lt;showmeter &#39;confidence&#39; `_confidence / _maxConfidence`&gt;&gt;
 &lt;/div&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">

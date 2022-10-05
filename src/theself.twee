@@ -77,6 +77,7 @@ Person 1 takes a look at her legs, deciding if it looks good enough to show.
 <<person>>Well, your chest is too flat for that top too.<</person>>
 
 [[take shirt off|naked]]
+[[I like what I'm wearing though|likeOutfit]]
 /*end of noCare passage */
 
 /*hair passage */
@@ -168,19 +169,28 @@ Person 1 puts her shirt back on and starts questioning her
 
 <<person1>>Do you think I'm interesting enough to be around?<</person1>>
 <<person>>Do YOU think you're interesting enough to be around?<</person>>
+<<person1>>um...<</person1>>
+
+[[Maybe?? I think I can be.|bonusPoint]]
+[[I think I'm done talking to myself for the day|mirror]]
 /*end of dressed passage */
+
+/*bonusPoint passage*//*add to Confidence */
+:: bonusPoint
+<<person1>>Maybe?? I think I can be.<</person1>>
+<<person>>Wow, you sound so confident.<</person>>
+
+[[I think I'm done talking to myself for the day|mirror]]
+/*end of bonusPoint passage */
 
 /*sameOutfit passage */
 :: sameOutfit
 <<person1>>I'll stick with this outfit.<</person1>>
-
-<<if $fixHair>>/*if fixHair is true */
-    <<person>>So.. what now?<</person>>
+<<if $fixHair>>/*if fixHair is true */<<person>>So.. what now?<</person>>
 
     [[I think I'm done talking to myself for the day|mirror]]
     [[(question your being)|dressed]]
-<<else>>
-    <<person>>Fix your hair.<</person>>
+<<else>><<person>>Fix your hair.<</person>>
 
     [[try on hairstyles|hair]]
 <</if>>
