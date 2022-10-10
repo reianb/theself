@@ -14,19 +14,20 @@ The Self
 <<character 'person' 'assets/person.jpg'>>
 <<set $fixHair to false>>
 <<set $naked to false>>
-
 <<newmeter 'confidence'>>
     <<colors 'green' 'red'>>
+    <<animation 300ms>>
+    <<label '$confidence'>>
 <</newmeter>>
-<<set _confidence to 75, _maxConfidence to 100>>
 
 :: Start
+<<set $confidence to 75, $maxConfidence to 100>>
 R opens the door and someone catches her attention.
 
 <<person>>Your face looks disgusting today.<</person>>
  
-[[Does the outfit look cute though?|outfit]]
-[[I think I look good.|looks]]
+[[Does the outfit look cute though?|outfit][$confidence to 72]]
+[[I think I look good.|looks][$confidence to 80]]
 
 /*outfit passage */
 :: outfit
@@ -208,5 +209,5 @@ Person 1 takes one last look at her reflection on the mirror then walks away.
 
 :: PassageFooter
 <div style="padding-top:40px">
-Confidence: <<showmeter 'confidence' `_confidence / _maxConfidence`>>
+Confidence: <<showmeter 'confidence' `$confidence / $maxConfidence`>>
 </div>

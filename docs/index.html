@@ -117,16 +117,17 @@ a{
 &lt;&lt;character &#39;person&#39; &#39;assets/person.jpg&#39;&gt;&gt;
 &lt;&lt;set $fixHair to false&gt;&gt;
 &lt;&lt;set $naked to false&gt;&gt;
-
 &lt;&lt;newmeter &#39;confidence&#39;&gt;&gt;
     &lt;&lt;colors &#39;green&#39; &#39;red&#39;&gt;&gt;
-&lt;&lt;/newmeter&gt;&gt;
-&lt;&lt;set _confidence to 75, _maxConfidence to 100&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Start" tags="" position="225,100" size="100,100">R opens the door and someone catches her attention.
+    &lt;&lt;animation 300ms&gt;&gt;
+    &lt;&lt;label &#39;$confidence&#39;&gt;&gt;
+&lt;&lt;/newmeter&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Start" tags="" position="225,100" size="100,100">&lt;&lt;set $confidence to 75, $maxConfidence to 100&gt;&gt;
+R opens the door and someone catches her attention.
 
 &lt;&lt;person&gt;&gt;Your face looks disgusting today.&lt;&lt;/person&gt;&gt;
  
-[[Does the outfit look cute though?|outfit]]
-[[I think I look good.|looks]]
+[[Does the outfit look cute though?|outfit][$confidence to 72]]
+[[I think I look good.|looks][$confidence to 80]]
 
 /*outfit passage */</tw-passagedata><tw-passagedata pid="3" name="outfit" tags="" position="350,100" size="100,100">&lt;&lt;person1&gt;&gt;Does the outfit look cute though?&lt;&lt;/person1&gt;&gt;
 &lt;&lt;person&gt;&gt;...sure...Your legs look too skinny though.&lt;&lt;/person&gt;&gt;
@@ -261,7 +262,7 @@ Person 1 takes one last look at her reflection on the mirror then walks away.
 /*probably add an illustration of mirror or if you have time add short animation */
 
 /*end of mirror passage */</tw-passagedata><tw-passagedata pid="24" name="PassageFooter" tags="" position="475,350" size="100,100">&lt;div style=&quot;padding-top:40px&quot;&gt;
-Confidence: &lt;&lt;showmeter &#39;confidence&#39; `_confidence / _maxConfidence`&gt;&gt;
+Confidence: &lt;&lt;showmeter &#39;confidence&#39; `$confidence / $maxConfidence`&gt;&gt;
 &lt;/div&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
