@@ -10,62 +10,77 @@ The Self
 
 
 :: StoryInit
-<<character 'person1' 'assets/lisa.jpg'>>
+<<character 'Halie' 'assets/halie.jpg'>>
 <<character 'person' 'assets/person.jpg'>>
 <<set $fixHair to false>>
 <<set $naked to false>>
 <<newmeter 'confidence'>>
     <<colors 'green' 'red'>>
     <<animation 300ms>>
-    <<label '$confidence'>>
+    <<label '$confidence %'>>
 <</newmeter>>
 
 :: Start
 <<set $confidence to 75, $maxConfidence to 100>>
-R opens the door and someone catches her attention.
+Halie opens the door and someone catches her attention.
+She turns toward the other girl standing in her room, and the girl looks back at Halie with disgust in her eyes.
 
 <<person>>Your face looks disgusting today.<</person>>
  
-[[Does the outfit look cute though?|outfit][$confidence to 72]]
-[[I think I look good.|looks][$confidence to 80]]
+Halie is slightly taken aback, although she is not surprised since a lot of Halie's conversations with her always start like this.
+
+Halie 1 responds, "..."
+[[Does the outfit look cute though?|outfit]]
+[[I think I look good.|looks][$confidence to $confidence += 2]]
 
 /*outfit passage */
 :: outfit
-<<person1>>Does the outfit look cute though?<</person1>>
+<<Halie>>Does the outfit look cute though?<</Halie>>
+The girl looks at Halie up and down.
+
 <<person>>...sure...Your legs look too skinny though.<</person>>
 
-[[Does it?|agree]]
-[[I think it looks fine.|disagree]]
+Halie knits her brows, "..."
+[[Does it?|agree][$confidence to $confidence -= 2]]
+[[I think it looks fine.|disagree][$confidence to $confidence += 1]]
 /* end of outfit passage */
 
 /*looks passage */
 :: looks
-<<person1>>I think I look good.<</person1>>
+<<Halie>>I think I look good.<</Halie>>
+The girl looks at Halie up and down.
+
 <<person>>...sure...Your legs look too skinny though.<</person>>
 
-[[Does it?|agree]]
-[[I think it looks fine.|disagree]]
+Halie knits her brows, "..."
+[[Does it?|agree][$confidence to $confidence -= 2]]
+[[I think it looks fine.|disagree][$confidence to $confidence += 1]]
 /* end of looks passage */
 
 /*agree passage*/
 :: agree
-<<person1>>Does it?<</person1>>
+<<Halie>>Does it?<</Halie>>
 <<person>>Yep, I think you should wear something that hides it.<</person>>
 
-[[(Examine your legs)|leg]]
+Halie decides, "..."
+[[(to inspect her legs)|leg]]
 [[I think it's fine. I need to fix my hair though.|hair]]
 /* end of agree passage */
 
 /*leg passage */
 :: leg
-Person 1 takes a look at her legs, deciding if it looks good enough to show.
+Halie takes a look at her legs, and agrees that it barely looks like it barely has any meat in it,
+and she says, "..."
 
 [[I like what I'm wearing though|likeOutfit]]
 [[I think it looks fine.|disagree]]
 /*end of leg passage */
 
 :: disagree
-<<person1>>I think it looks fine.<</person1>>
+<<Halie>>I think it looks fine.<</Halie>>
+
+Halie's visitor doesn't push but decides to comment on something else of Halie's looks.
+
 <<person>>Ok, but your hair is a mess.<</person>>
 
 [[(Try on hairstyles)|hair]]
@@ -74,7 +89,7 @@ Person 1 takes a look at her legs, deciding if it looks good enough to show.
 
 /*noCare passage */
 :: noCare
-<<person1>>I don't care. I can't do much with it anyway. It's too flat.<</person1>>
+<<Halie>>I don't care. I can't do much with it anyway. It's too flat.<</Halie>>
 <<person>>Well, your chest is too flat for that top too.<</person>>
 
 [[take shirt off|naked]]
@@ -84,9 +99,9 @@ Person 1 takes a look at her legs, deciding if it looks good enough to show.
 /*hair passage */
 :: hair
 <<set $fixHair to true>>
-<<person1>>Is [[this|thinHair]] better?
+<<Halie>>Is [[this|thinHair]] better?
 or [[this|thinHair]]?
-<</person1>>
+<</Halie>>
 /*end of hair passage */
 /* maybe the photos are pop-ups??*/
 :: braided
@@ -106,14 +121,14 @@ or [[this|thinHair]]?
 
 /*diffHair passage */
 :: diffHair
-<<person1>>I can try other hairstyles..<</person1>>
+<<Halie>>I can try other hairstyles..<</Halie>>
 <<person>>I don't think any hairstyle will suit your flat hair. That top doesn't even work with your flat chest.<</person>>
 
 [[(take shirt off)|naked]]
 [[I like what I'm wearing though|likeOutfit]]
 /*aCup passage */
 :: aCup
-<<person1>>I think I'll braid my hair.<</person1>>
+<<Halie>>I think I'll braid my hair.<</Halie>>
 <<person>>Horrible. Anyway, that top does not work well with your A cups.<</person>>
 
 [[I like what I'm wearing though|likeOutfit]]
@@ -122,7 +137,7 @@ or [[this|thinHair]]?
 
 /*likeOutfit passage */
 :: likeOutfit
-<<person1>>I like what I'm wearing though.<</person1>>
+<<Halie>>I like what I'm wearing though.<</Halie>>
 
 [[(take shirt off)|naked]]
 [[I'll stick with this outfit|sameOutfit]]
@@ -132,7 +147,7 @@ or [[this|thinHair]]?
 :: naked
 <<set $naked to true>>
 Person 1 takes her shirt off
-<<person1>> I know.. There's literally nothing there. Maybe a little bump, but it's basically nothing.<</person1>>
+<<Halie>> I know.. There's literally nothing there. Maybe a little bump, but it's basically nothing.<</Halie>>
 <<person>>...did you just... strip in front of me?
 God, your torso looks like a boy's.<</person>>
 
@@ -142,7 +157,7 @@ God, your torso looks like a boy's.<</person>>
 
 /*laugh passage */
 :: laugh
-<<person1>>HAHAHAAHHAAAAHAHA That was lowkey funny.<</person1>>
+<<Halie>>HAHAHAAHHAAAAHAHA That was lowkey funny.<</Halie>>
 <<person>>Just put your shirt back on, please<</person>>
 
 [[(put shirt back on)|dressed]]
@@ -151,7 +166,7 @@ God, your torso looks like a boy's.<</person>>
 
 /*defend passage */
 :: defend
-<<person1>>Woah. Ok. I'm not THAT flat...<</person1>>
+<<Halie>>Woah. Ok. I'm not THAT flat...<</Halie>>
 <<person>>Just put your shirt back on, please<</person>>
 
 [[(put shirt back on)|dressed]]
@@ -160,7 +175,7 @@ God, your torso looks like a boy's.<</person>>
 
 /*shirtless passage */
 :: shirtless
-<<person1>>Is it really that bad? Do you think there's at least one person that thinks I'm attractive?<</person1>>
+<<Halie>>Is it really that bad? Do you think there's at least one person that thinks I'm attractive?<</Halie>>
 <<person>>I think you should <</person>>
 /*dressed passage */
 :: dressed
@@ -168,9 +183,9 @@ God, your torso looks like a boy's.<</person>>
 Person 1 puts her shirt back on and starts questioning her
 <</if>>
 
-<<person1>>Do you think I'm interesting enough to be around?<</person1>>
+<<Halie>>Do you think I'm interesting enough to be around?<</Halie>>
 <<person>>Do YOU think you're interesting enough to be around?<</person>>
-<<person1>>um...<</person1>>
+<<Halie>>um...<</Halie>>
 
 [[Maybe?? I think I can be.|bonusPoint]]
 [[I think I'm done talking to myself for the day|mirror]]
@@ -178,7 +193,7 @@ Person 1 puts her shirt back on and starts questioning her
 
 /*bonusPoint passage*//*add to Confidence */
 :: bonusPoint
-<<person1>>Maybe?? I think I can be.<</person1>>
+<<Halie>>Maybe?? I think I can be.<</Halie>>
 <<person>>Wow, you sound so confident.<</person>>
 
 [[I think I'm done talking to myself for the day|mirror]]
@@ -186,7 +201,7 @@ Person 1 puts her shirt back on and starts questioning her
 
 /*sameOutfit passage */
 :: sameOutfit
-<<person1>>I'll stick with this outfit.<</person1>>
+<<Halie>>I'll stick with this outfit.<</Halie>>
 <<if $fixHair>>/*if fixHair is true */<<person>>So.. what now?<</person>>
 
     [[I think I'm done talking to myself for the day|mirror]]
@@ -199,7 +214,7 @@ Person 1 puts her shirt back on and starts questioning her
 
 /*mirror passage */
 :: mirror
-<<person1>>I think I'm done talking to myself for the day.<</person1>>
+<<Halie>>I think I'm done talking to myself for the day.<</Halie>>
 <<person>>Wait wha--<</person>>
 
 Person 1 takes one last look at her reflection on the mirror then walks away.
