@@ -63,7 +63,7 @@ Halie knits her brows, "..."
 <<person>>Yep, I think you should wear something that hides it.<</person>>
 
 Halie decides, "..."
-[[(to inspect her legs)|leg]]
+[[(to look at her legs)|leg]]
 [[I think it's fine. I need to fix my hair though.|hair]]
 /* end of agree passage */
 
@@ -79,12 +79,13 @@ and she says, "..."
 :: disagree
 <<Halie>>I think it looks fine.<</Halie>>
 
-Halie's visitor doesn't push but decides to comment on something else of Halie's looks.
+Halie's critic doesn't push but decides to comment on something else of Halie's looks.
 
 <<person>>Ok, but your hair is a mess.<</person>>
 
+Halie fumbles with her hair, "..."
 [[(Try on hairstyles)|hair]]
-[[I don't care. I can't do much with it.|noCare]]
+[[I don't care. I can't do much with it.|noCare][$confidence to $confidence += 1]]
 /*end passage */
 
 /*noCare passage */
@@ -92,6 +93,8 @@ Halie's visitor doesn't push but decides to comment on something else of Halie's
 <<Halie>>I don't care. I can't do much with it anyway. It's too flat.<</Halie>>
 <<person>>Well, your chest is too flat for that top too.<</person>>
 
+Feeling the sting of the comment, Halie second guesses her outfit choice. 
+"..."
 [[take shirt off|naked]]
 [[I like what I'm wearing though|likeOutfit]]
 /*end of noCare passage */
@@ -138,9 +141,10 @@ or [[this|thinHair]]?
 /*likeOutfit passage */
 :: likeOutfit
 <<Halie>>I like what I'm wearing though.<</Halie>>
+<<person>>I like the outfit too. The outfit isn't the problem, it's you.<</person>>
 
 [[(take shirt off)|naked]]
-[[I'll stick with this outfit|sameOutfit]]
+[[I'll stick with this outfit|sameOutfit][$confidence to $confidence += 5]]
 /*end of likeOutfit passage */
 
 /*naked passage */

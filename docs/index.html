@@ -157,7 +157,7 @@ Halie knits her brows, &quot;...&quot;
 &lt;&lt;person&gt;&gt;Yep, I think you should wear something that hides it.&lt;&lt;/person&gt;&gt;
 
 Halie decides, &quot;...&quot;
-[[(to inspect her legs)|leg]]
+[[(to look at her legs)|leg]]
 [[I think it&#39;s fine. I need to fix my hair though.|hair]]
 /* end of agree passage */
 
@@ -168,17 +168,20 @@ and she says, &quot;...&quot;
 [[I think it looks fine.|disagree]]
 /*end of leg passage */</tw-passagedata><tw-passagedata pid="7" name="disagree" tags="" position="850,100" size="100,100">&lt;&lt;Halie&gt;&gt;I think it looks fine.&lt;&lt;/Halie&gt;&gt;
 
-Halie&#39;s visitor doesn&#39;t push but decides to comment on something else of Halie&#39;s looks.
+Halie&#39;s critic doesn&#39;t push but decides to comment on something else of Halie&#39;s looks.
 
 &lt;&lt;person&gt;&gt;Ok, but your hair is a mess.&lt;&lt;/person&gt;&gt;
 
+Halie fumbles with her hair, &quot;...&quot;
 [[(Try on hairstyles)|hair]]
-[[I don&#39;t care. I can&#39;t do much with it.|noCare]]
+[[I don&#39;t care. I can&#39;t do much with it.|noCare][$confidence to $confidence += 1]]
 /*end passage */
 
 /*noCare passage */</tw-passagedata><tw-passagedata pid="8" name="noCare" tags="" position="975,100" size="100,100">&lt;&lt;Halie&gt;&gt;I don&#39;t care. I can&#39;t do much with it anyway. It&#39;s too flat.&lt;&lt;/Halie&gt;&gt;
 &lt;&lt;person&gt;&gt;Well, your chest is too flat for that top too.&lt;&lt;/person&gt;&gt;
 
+Feeling the sting of the comment, Halie second guesses her outfit choice. 
+&quot;...&quot;
 [[take shirt off|naked]]
 [[I like what I&#39;m wearing though|likeOutfit]]
 /*end of noCare passage */
@@ -210,9 +213,10 @@ or [[this|thinHair]]?
 /*end of aCup passage */
 
 /*likeOutfit passage */</tw-passagedata><tw-passagedata pid="15" name="likeOutfit" tags="" position="600,225" size="100,100">&lt;&lt;Halie&gt;&gt;I like what I&#39;m wearing though.&lt;&lt;/Halie&gt;&gt;
+&lt;&lt;person&gt;&gt;I like the outfit too. The outfit isn&#39;t the problem, it&#39;s you.&lt;&lt;/person&gt;&gt;
 
 [[(take shirt off)|naked]]
-[[I&#39;ll stick with this outfit|sameOutfit]]
+[[I&#39;ll stick with this outfit|sameOutfit][$confidence to $confidence += 5]]
 /*end of likeOutfit passage */
 
 /*naked passage */</tw-passagedata><tw-passagedata pid="16" name="naked" tags="" position="725,225" size="100,100">&lt;&lt;set $naked to true&gt;&gt;
