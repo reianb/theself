@@ -164,51 +164,69 @@ Halie decides, &quot;...&quot;
 /*leg passage */</tw-passagedata><tw-passagedata pid="6" name="leg" tags="" position="725,100" size="100,100">Halie takes a look at her legs, and agrees that it barely looks like it barely has any meat in it,
 and she says, &quot;...&quot;
 
-[[I like what I&#39;m wearing though|likeOutfit]]
+[[I like what I&#39;m wearing though|likeOutfit][$confidence to $confidence += 1]]
 [[I think it looks fine.|disagree]]
 /*end of leg passage */</tw-passagedata><tw-passagedata pid="7" name="disagree" tags="" position="850,100" size="100,100">&lt;&lt;Halie&gt;&gt;I think it looks fine.&lt;&lt;/Halie&gt;&gt;
 
-Halie&#39;s critic doesn&#39;t push but decides to comment on something else of Halie&#39;s looks.
+The unsolicited critic doesn&#39;t push but decides to comment on something else of Halie&#39;s looks.
 
 &lt;&lt;person&gt;&gt;Ok, but your hair is a mess.&lt;&lt;/person&gt;&gt;
 
 Halie fumbles with her hair, &quot;...&quot;
 [[(Try on hairstyles)|hair]]
-[[I don&#39;t care. I can&#39;t do much with it.|noCare][$confidence to $confidence += 1]]
+[[I don&#39;t care. I can&#39;t do much with it. It&#39;s too  flat |noCare]]
 /*end passage */
 
 /*noCare passage */</tw-passagedata><tw-passagedata pid="8" name="noCare" tags="" position="975,100" size="100,100">&lt;&lt;Halie&gt;&gt;I don&#39;t care. I can&#39;t do much with it anyway. It&#39;s too flat.&lt;&lt;/Halie&gt;&gt;
+
+Releasing her hair from her grip, Halie shifts her focus back to the person standing in front of her.
+
 &lt;&lt;person&gt;&gt;Well, your chest is too flat for that top too.&lt;&lt;/person&gt;&gt;
 
-Feeling the sting of the comment, Halie second guesses her outfit choice. 
+Feeling the sting of the comment, Halie takes a second to scrutinize her outfit choice. 
 &quot;...&quot;
 [[take shirt off|naked]]
-[[I like what I&#39;m wearing though|likeOutfit]]
+[[I like what I&#39;m wearing though|likeOutfit][$confidence to $confidence += 1]]
 /*end of noCare passage */
 
 /*hair passage */</tw-passagedata><tw-passagedata pid="9" name="hair" tags="" position="1100,100" size="100,100">&lt;&lt;set $fixHair to true&gt;&gt;
-&lt;&lt;Halie&gt;&gt;Is [[this|thinHair]] better?
-or [[this|thinHair]]?
-&lt;&lt;/Halie&gt;&gt;
+
+Halie starts braiding her hair and asks,
+
+&lt;&lt;Halie&gt;&gt;Is [[this|thinHair]] better? or...&lt;&lt;/Halie&gt;&gt;
+
+She undoes the braid, twists and puts her hair up into a donut.
+
+&lt;&lt;Halie&gt;&gt;is [[this|thinHair]] better?&lt;&lt;/Halie&gt;&gt;
 /*end of hair passage */
-/* maybe the photos are pop-ups??*/</tw-passagedata><tw-passagedata pid="10" name="braided" tags="" position="1225,100" size="100,100">[[A photo/drawing of braided hair|thinHair]]</tw-passagedata><tw-passagedata pid="11" name="bun" tags="" position="100,225" size="100,100">[[A photo/drawing of braided hair|thinHair]]
+/* maybe the photos are pop-ups??*/</tw-passagedata><tw-passagedata pid="10" name="braided" tags="" position="1225,100" size="100,100">[[A photo/drawing of braided hair|thinHair]]</tw-passagedata><tw-passagedata pid="11" name="bun" tags="" position="100,225" size="100,100">[[A photo/drawing of bun hair|thinHair]]
 /*end of photo pop-up */
 
-/*thinHair passage */</tw-passagedata><tw-passagedata pid="12" name="thinHair" tags="" position="225,225" size="100,100">&lt;&lt;person&gt;&gt;UGH. Your hair is so flat and thin.&lt;&lt;/person&gt;&gt;
+/*thinHair passage */</tw-passagedata><tw-passagedata pid="12" name="thinHair" tags="" position="225,225" size="100,100">Halie looks away from her hair to see the girl wearing a scrunched up face of disapproval.
+
+&lt;&lt;person&gt;&gt;UGH. Your hair is so flat and thin.&lt;&lt;/person&gt;&gt;
+
+She shifts her focus back to hair and starts ruffling it in an ineffective attempt to give it volume.
+Defeated, Halie accepts the volumeless-ness of her hair. &quot;...&quot; /*+1 to confidence */
 
 [[I think I&#39;ll braid my hair|aCup]]
 [[I can try other hairstyles..|diffHair]]
 /*end of thin hair passage */
 
 /*diffHair passage */</tw-passagedata><tw-passagedata pid="13" name="diffHair" tags="" position="350,225" size="100,100">&lt;&lt;Halie&gt;&gt;I can try other hairstyles..&lt;&lt;/Halie&gt;&gt;
-&lt;&lt;person&gt;&gt;I don&#39;t think any hairstyle will suit your flat hair. That top doesn&#39;t even work with your flat chest.&lt;&lt;/person&gt;&gt;
 
+Before Halie could start styling her hair, she receives another unsolicited criticism.
+
+&lt;&lt;person&gt;&gt;I don&#39;t think any hairstyle will suit your flat hair. That top doesn&#39;t even work with your flat chest.&lt;&lt;/person&gt;&gt;
+/* -2 to confidence */
+Halie is starting to feel drained from the conversation with this person, but at the same time she can&#39;t bring herself to leave.
+Instead she encourages the conversation forward. &quot;...&quot;
 [[(take shirt off)|naked]]
 [[I like what I&#39;m wearing though|likeOutfit]]
 /*aCup passage */</tw-passagedata><tw-passagedata pid="14" name="aCup" tags="" position="475,225" size="100,100">&lt;&lt;Halie&gt;&gt;I think I&#39;ll braid my hair.&lt;&lt;/Halie&gt;&gt;
 &lt;&lt;person&gt;&gt;Horrible. Anyway, that top does not work well with your A cups.&lt;&lt;/person&gt;&gt;
 
-[[I like what I&#39;m wearing though|likeOutfit]]
+[[I like what I&#39;m wearing though|likeOutfit][$confidence to $confidence += 1]]
 [[(take shirt off)|naked]]
 /*end of aCup passage */
 
@@ -225,7 +243,7 @@ Person 1 takes her shirt off
 &lt;&lt;person&gt;&gt;...did you just... strip in front of me?
 God, your torso looks like a boy&#39;s.&lt;&lt;/person&gt;&gt;
 
-[[Woah. Ok. I&#39;m not THAT flat...|defend]]
+[[Woah. Ok. I&#39;m not THAT flat...|defend][$confidence to $confidence += 5]]
 [[(laugh)|laugh]]
 /*end of naked passage */
 

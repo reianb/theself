@@ -72,51 +72,64 @@ Halie decides, "..."
 Halie takes a look at her legs, and agrees that it barely looks like it barely has any meat in it,
 and she says, "..."
 
-[[I like what I'm wearing though|likeOutfit]]
+[[I like what I'm wearing though|likeOutfit][$confidence to $confidence += 1]]
 [[I think it looks fine.|disagree]]
 /*end of leg passage */
 
 :: disagree
 <<Halie>>I think it looks fine.<</Halie>>
 
-Halie's critic doesn't push but decides to comment on something else of Halie's looks.
+The unsolicited critic doesn't push but decides to comment on something else of Halie's looks.
 
 <<person>>Ok, but your hair is a mess.<</person>>
 
 Halie fumbles with her hair, "..."
 [[(Try on hairstyles)|hair]]
-[[I don't care. I can't do much with it.|noCare][$confidence to $confidence += 1]]
+[[I don't care. I can't do much with it. It's too  flat |noCare]]
 /*end passage */
 
 /*noCare passage */
 :: noCare
 <<Halie>>I don't care. I can't do much with it anyway. It's too flat.<</Halie>>
+
+Releasing her hair from her grip, Halie shifts her focus back to the person standing in front of her.
+
 <<person>>Well, your chest is too flat for that top too.<</person>>
 
-Feeling the sting of the comment, Halie second guesses her outfit choice. 
+Feeling the sting of the comment, Halie takes a second to scrutinize her outfit choice. 
 "..."
 [[take shirt off|naked]]
-[[I like what I'm wearing though|likeOutfit]]
+[[I like what I'm wearing though|likeOutfit][$confidence to $confidence += 1]]
 /*end of noCare passage */
 
 /*hair passage */
 :: hair
 <<set $fixHair to true>>
-<<Halie>>Is [[this|thinHair]] better?
-or [[this|thinHair]]?
-<</Halie>>
+
+Halie starts braiding her hair and asks,
+
+<<Halie>>Is [[this|thinHair]] better? or...<</Halie>>
+
+She undoes the braid, twists and puts her hair up into a donut.
+
+<<Halie>>is [[this|thinHair]] better?<</Halie>>
 /*end of hair passage */
 /* maybe the photos are pop-ups??*/
 :: braided
 [[A photo/drawing of braided hair|thinHair]]
 
 :: bun
-[[A photo/drawing of braided hair|thinHair]]
+[[A photo/drawing of bun hair|thinHair]]
 /*end of photo pop-up */
 
 /*thinHair passage */
 :: thinHair
+Halie looks away from her hair to see the girl wearing a scrunched up face of disapproval.
+
 <<person>>UGH. Your hair is so flat and thin.<</person>>
+
+She shifts her focus back to hair and starts ruffling it in an ineffective attempt to give it volume.
+Defeated, Halie accepts the volumeless-ness of her hair. "..." /*+1 to confidence */
 
 [[I think I'll braid my hair|aCup]]
 [[I can try other hairstyles..|diffHair]]
@@ -125,8 +138,13 @@ or [[this|thinHair]]?
 /*diffHair passage */
 :: diffHair
 <<Halie>>I can try other hairstyles..<</Halie>>
-<<person>>I don't think any hairstyle will suit your flat hair. That top doesn't even work with your flat chest.<</person>>
 
+Before Halie could start styling her hair, she receives another unsolicited criticism.
+
+<<person>>I don't think any hairstyle will suit your flat hair. That top doesn't even work with your flat chest.<</person>>
+/* -2 to confidence */
+Halie is starting to feel drained from the conversation with this person, but at the same time she can't bring herself to leave.
+Instead she encourages the conversation forward. "..."
 [[(take shirt off)|naked]]
 [[I like what I'm wearing though|likeOutfit]]
 /*aCup passage */
@@ -134,7 +152,7 @@ or [[this|thinHair]]?
 <<Halie>>I think I'll braid my hair.<</Halie>>
 <<person>>Horrible. Anyway, that top does not work well with your A cups.<</person>>
 
-[[I like what I'm wearing though|likeOutfit]]
+[[I like what I'm wearing though|likeOutfit][$confidence to $confidence += 1]]
 [[(take shirt off)|naked]]
 /*end of aCup passage */
 
@@ -155,7 +173,7 @@ Person 1 takes her shirt off
 <<person>>...did you just... strip in front of me?
 God, your torso looks like a boy's.<</person>>
 
-[[Woah. Ok. I'm not THAT flat...|defend]]
+[[Woah. Ok. I'm not THAT flat...|defend][$confidence to $confidence += 5]]
 [[(laugh)|laugh]]
 /*end of naked passage */
 
