@@ -150,8 +150,13 @@ Instead she encourages the conversation forward. "..."
 /*aCup passage */
 :: aCup
 <<Halie>>I think I'll braid my hair.<</Halie>>
-<<person>>Horrible. Anyway, that top does not work well with your A cups.<</person>>
 
+Although she agrees that her fine hair gives no justice to any hairstyle she puts on, Halie braids her hair anyway because she wants to. /* +2 to confidence */
+
+<<person>>Looks horrible. Anyway, that top does not work well with your flat chest.<</person>>
+
+"Of course she brings it up, she always does" Halie thinks to herself. Against her better judgement knowing it won't do her any good,
+she fixes her gaze toward the part of herself she tries to ignore. "..." 
 [[I like what I'm wearing though|likeOutfit][$confidence to $confidence += 1]]
 [[(take shirt off)|naked]]
 /*end of aCup passage */
@@ -173,7 +178,7 @@ Person 1 takes her shirt off
 <<person>>...did you just... strip in front of me?
 God, your torso looks like a boy's.<</person>>
 
-[[Woah. Ok. I'm not THAT flat...|defend][$confidence to $confidence += 5]]
+[[Woah. Ok. I'm not THAT flat...|defend][$confidence to $confidence -= 5]]
 [[(laugh)|laugh]]
 /*end of naked passage */
 
@@ -202,22 +207,23 @@ God, your torso looks like a boy's.<</person>>
 /*dressed passage */
 :: dressed
 <<if $naked>>
-Person 1 puts her shirt back on and starts questioning her
+Halie puts her shirt back on and starts questioning the person that she is and how other people perceive her.
 <</if>>
-
+Halie starts questioning the person that she is and how other people perceive her.
 <<Halie>>Do you think I'm interesting enough to be around?<</Halie>>
 <<person>>Do YOU think you're interesting enough to be around?<</person>>
 <<Halie>>um...<</Halie>>
 
-[[Maybe?? I think I can be.|bonusPoint]]
+[[Um...yes?|bonusPoint][$confidence to $confidence += 1]]
 [[I think I'm done talking to myself for the day|mirror]]
 /*end of dressed passage */
 
 /*bonusPoint passage*//*add to Confidence */
 :: bonusPoint
-<<Halie>>Maybe?? I think I can be.<</Halie>>
+<<Halie>>Um...yes?<</Halie>>
 <<person>>Wow, you sound so confident.<</person>>
 
+[[(question your being)|dressed]]
 [[I think I'm done talking to myself for the day|mirror]]
 /*end of bonusPoint passage */
 
