@@ -155,7 +155,7 @@ Although she agrees that her fine hair gives no justice to any hairstyle she put
 
 <<person>>Looks horrible. Anyway, that top does not work well with your flat chest.<</person>>
 
-"Of course she brings it up, she always does" Halie thinks to herself. Against her better judgement knowing it won't do her any good,
+"Of course she brings it up, she always does," Halie thinks to herself. Against her better judgement knowing it won't do her any good,
 she fixes her gaze toward the part of herself she tries to ignore. "..." 
 [[I like what I'm wearing though|likeOutfit][$confidence to $confidence += 1]]
 [[(take shirt off)|naked]]
@@ -166,6 +166,7 @@ she fixes her gaze toward the part of herself she tries to ignore. "..."
 <<Halie>>I like what I'm wearing though.<</Halie>>
 <<person>>I like the outfit too. The outfit isn't the problem, it's you.<</person>>
 
+"You are so brutal..." Halie's throat feel consricted from holding back tears. "...but..."
 [[(take shirt off)|naked]]
 [[I'll stick with this outfit|sameOutfit][$confidence to $confidence += 5]]
 /*end of likeOutfit passage */
@@ -173,8 +174,8 @@ she fixes her gaze toward the part of herself she tries to ignore. "..."
 /*naked passage */
 :: naked
 <<set $naked to true>>
-Person 1 takes her shirt off
-<<Halie>> I know.. There's literally nothing there. Maybe a little bump, but it's basically nothing.<</Halie>>
+Halie takes her shirt off
+<<Halie>> ...I know.. There's literally nothing there. Maybe a little bump, but it's basically nothing.<</Halie>>
 <<person>>...did you just... strip in front of me?
 God, your torso looks like a boy's.<</person>>
 
