@@ -10,8 +10,8 @@ The Self
 
 
 :: StoryInit
-<<character 'Halie' 'assets/halie.jpg'>>
-<<character 'person' 'assets/person.jpg'>>
+<<character 'Halie' 'halie.jpeg'>>
+<<character 'person' 'person.jpeg'>>
 <<set $fixHair to false>>
 <<set $naked to false>>
 <<newmeter 'confidence'>>
@@ -252,6 +252,4 @@ Person 1 takes one last look at her reflection on the mirror then walks away.
 /*end of mirror passage */
 
 :: PassageFooter
-<div style="padding-top:40px">
 Confidence: <<showmeter 'confidence' `$confidence / $maxConfidence`>>
-</div>
