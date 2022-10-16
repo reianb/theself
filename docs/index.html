@@ -104,12 +104,17 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 /* twine-user-stylesheet #2: "theself.css" */
 a{
     color: grey;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* twine-user-script #1: "meters.min.js" */
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* twine-user-script #1: "fading-macro-set.min.js" */
+// fading-macro-set.min.js, for SugarCube 2, by Chapel
+// v1.1.0, 2022-07-21, 3bdbdfbe5ae47a46e4f4e52766d78701939ae9a6
+;Macro.add("fadein",{tags:null,handler:function(){var t,a,s=$(document.createElement("span")),e=this.payload[0].contents;if(0===this.args.length)return this.error("no arguments given");t=Util.fromCssTime(this.args[0]),a=this.args.length>1?Util.fromCssTime(this.args[1]):0,s.wiki(e).addClass("macro-"+this.name).appendTo(this.output).hide().delay(a).fadeIn(t)}}),Macro.add("fadeout",{tags:null,handler:function(){var t,a,s=$(document.createElement("span")),e=this.payload[0].contents;if(0===this.args.length)return this.error("no arguments given");t=Util.fromCssTime(this.args[0]),a=this.args.length>1?Util.fromCssTime(this.args[1]):0,s.wiki(e).addClass("macro-"+this.name).appendTo(this.output).delay(a).fadeOut(t)}});
+// end fading-macro-set.min.js
+/* twine-user-script #2: "meters.min.js" */
 // meters.min.js, for SugarCube 2, by Chapel
 // v1.0.1, 2022-07-21, 3bdbdfbe5ae47a46e4f4e52766d78701939ae9a6
 ;!function(){"use strict";var t=!0,e=!1,s=!1,i={full:"#2ECC40",empty:"#FF4136",back:"#DDDDDD",height:"12px",width:"180px",animate:400,easing:"swing",text:"#111111",label:"",align:"center"},n=["center","left","right"],r=["swing","linear"];function a(t,e){return t&&"string"==typeof t&&(t=t.toLowerCase().trim())?t:e||""}function o(t){return t<.5?2*t*t:(4-2*t)*t-1}function l(t,e){if(!(this instanceof l))return new l(t,e);var s=clone(i);this.settings=Object.assign(s,t),this.settings.align=a(this.settings.align),this.settings.easing=a(this.settings.easing),n.includes(this.settings.align)||(this.settings.align="center"),r.includes(this.settings.easing)||(this.settings.easing="swing"),e=Number(e),Number.isNaN(e)&&(e=1),e=Math.clamp(e,0,1),this.value=e;var h=$(document.createElement("div")).addClass("chapel-meter").attr({"data-val":e,"data-label":this.settings.label}).css({position:"relative","background-color":this.settings.back,height:this.settings.height,width:this.settings.width,overflow:"hidden"}),g=$(document.createElement("div")).addClass("meter-label").css({top:0,right:0,"font-size":this.settings.height,"font-weight":"bold","line-height":"100%",width:"100%",height:"100%","vertical-align":"middle","text-align":this.settings.align,color:this.settings.text,"z-index":1,position:"relative",bottom:"100%"}).wiki(this.settings.label).appendTo(h),u=$(document.createElement("div")).addClass("meter-top").css({"background-color":this.settings.full,opacity:o(this.value),width:"100%",height:"100%","z-index":0}),c=$(document.createElement("div")).addClass("meter-bottom").css({position:"absolute",top:0,left:0,"background-color":this.settings.empty,opacity:1,width:100*this.value+"%",height:"100%","z-index":0}).append(u).appendTo(h);this.$element=h,this.$bars={top:u,bottom:c},this.$label=g,g.css("font-size",parseInt(h.css("height"),10)<parseInt($(".passage").css("font-size"),10)?h.css("height"):$(".passage").css("font-size")),g.css("line-height",h.css("height"))}Object.assign(l,{_list:new Map,is:function(t){return t instanceof l},has:function(t){return l._list.has(t)&&l.is(l._list.get(t))},get:function(t){return l.has(t)?l._list.get(t):null},del:function(t){l.has(t)&&l._list.delete(t)},add:function(t,s,i){if(!l.has(t)||e){Object.assign(s,{id:t});var n=new l(s,i);return l._list.set(t,n),n}console.error('Meter "'+t+'" already exists.')},_emit:function(t,e){l.is(t)&&t.$element.trigger({type:":"+e,meter:t})}}),Object.assign(l.prototype,{constructor:l,_label:function(t){var e=this;function s(){e.$label.empty().wiki(e.settings.label),e.$label.css("font-size",parseInt(e.$element.css("height"),10)<parseInt(e.$element.parent().css("font-size"),10)?e.$element.css("height"):e.$element.parent().css("font-size")),e.$label.css("line-height",e.$element.css("height"))}return t?setTimeout(s,Engine.minDomActionDelay):s(),this},_width:function(){var t=this;return this.$bars.bottom.animate({width:100*this.value+"%"},this.settings.animate,this.settings.easing,(function(){l._emit(t,"meter-animation-complete")})),this},_color:function(){return this.$bars.top.animate({opacity:o(this.value)},this.settings.animate,this.settings.easing),this},animate:function(){return l._emit(this,"meter-animation-start"),this._color()._width()._label()},val:function(t){return void 0!==t&&(t=Number(t),Number.isNaN(t)&&(t=1),t=Math.clamp(t,0,1),this.value=t,this.animate()),this.value},options:function(t){return t&&"object"==typeof t&&Object.assign(this.settings,t),this.settings},unwrap:function(){return this.$element[0]},place:function(t,e){var s=$(document.createElement("span"));return t instanceof jQuery||(t=$(t)),t[0]||console.warn("meter#place() -> no valid target"),e&&"object"==typeof e&&(e.classes&&(Array.isArray(e.classes)||"string"==typeof e.classes)&&s.addClass(e.classes),e.attr&&"object"==typeof e.attr&&s.attr(e.attr)),t.append(s.append(this.$element)),this._label(!0),this},on:function(t,e){return"function"!=typeof e?this:t&&"string"==typeof t&&t.trim()?(t=t.split(" ").map((function(t){return(t=t.split(".")[0])+".userland"})).join(" "),this.$element.on(t,e),this):this},one:function(t,e){return"function"!=typeof e?this:t&&"string"==typeof t&&t.trim()?(t=t.split(" ").map((function(t){return(t=t.split(".")[0])+".userland"})).join(" "),this.$element.one(t,e),this):this},off:function(t){return t=t&&"string"==typeof t&&t.trim()?t.split(" ").map((function(t){return(t=t.split(".")[0])+".userland"})).join(" "):".userland",this.$element.off(t),this},click:function(t,e){return this.$element.ariaClick(t,e),this},clone:function(){return new l(this.settings,this.value)},toJSON:function(){return JSON.reviveWrapper("new setup.Meter("+JSON.stringify(this.settings)+", "+this.value+")")}}),setup.Meter=l,t&&(window.Meter=window.Meter||l),Macro.add("newmeter",{tags:["colors","sizing","animation","label"],handler:function(){if(State.length>0&&!s)return this.error("The `<<newmeter>>` macro must be called in your `StoryInit` special passage. Seriously. No excuses. --Love, Chapel");if(this.args.length<1)return this.error("The `<<newmeter>>` macro requires at least one argument: a meter name.");var t=this.args[0],i=null,n=null,r=null,a=null;if("string"!=typeof t)return this.error("Invalid meter name.");if(t=t.trim(),l.has(t)&&!e)return this.error('Cannot clobber the existing meter "'+t+'".');this.payload.length&&(i=this.payload.find((function(t){return"colors"===t.name})),n=this.payload.find((function(t){return"sizing"===t.name})),r=this.payload.find((function(t){return"animation"===t.name})),a=this.payload.find((function(t){return"label"===t.name})));var o={};if(i){if(!i.args.length)return this.error("No arguments passed to the `<<colors>>` tag.");switch(i.args.length){case 1:o.empty=i.args[0],o.full="transparent";break;case 2:o.full=i.args[0],o.empty=i.args[1];break;default:o.full=i.args[0],o.empty=i.args[1],o.back=i.args[2]}}if(n){if(!n.args.length)return this.error("No arguments passed to the `<<sizing>>` tag.");o.width=n.args[0],n.args[1]&&(o.height=n.args[1])}if(r){if(!r.args.length)return this.error("No arguments passed to the `<<animation>>` tag.");if("boolean"!=typeof r.args[0]||r.args[0]){if("string"!=typeof r.args[0])return this.error("The argument to the `<<animation>>` tag should be `true`, `false`, or a valid CSS time value.");o.animate=Util.fromCssTime(r.args[0])}else o.animate=0;r.args[1]&&["swing","linear"].includes(r.args[1])&&(o.easing=r.args[1])}if(a){var h=a.args[0];if(!h||"string"!=typeof h)return this.error("The labelText argument for the `<<label>>` tag is required.");o.label=h.trim(),a.args[1]&&"string"==typeof a.args[1]&&(o.text=a.args[1]),a.args[2]&&"string"==typeof a.args[2]&&(o.align=a.args[2])}l.add(t,o,this.args[1])}}),Macro.add("showmeter",{handler:function(){if(this.args.length<1)return this.error("This macro requires at least one argument: the meter's name.");var t=this.args[0];if("string"!=typeof t)return this.error("Invalid meter name.");t=t.trim();var e=l.get(t);if(!e||!l.is(e))return this.error('The meter "'+t+'" does not exist.');"number"==typeof this.args[1]&&e.val(this.args[1]),e.place(this.output,{classes:"macro-"+this.name,attr:{id:"meter-"+Util.slugify(t)}})}}),Macro.add("updatemeter",{handler:function(){if(this.args.length<2)return this.error("This macro requires two arguments: the meter's name and a value.");var t=this.args[0];if("string"!=typeof t)return this.error("Invalid meter name.");t=t.trim();var e=l.get(t);if(!e||!l.is(e))return this.error('The meter "'+t+'" does not exist.');e.val(this.args[1])}})}();
 // end meters.min.js
-/* twine-user-script #2: "speech.min.js" */
+/* twine-user-script #3: "speech.min.js" */
 // speech.min.js, for SugarCube 2, by Chapel
 // v1.1.1, 2022-07-21, 3bdbdfbe5ae47a46e4f4e52766d78701939ae9a6
 ;!function(){"use strict";var a=new Map;function t(t,e,r){if(void 0===r&&e&&(r=e,e=null),State.length)throw new Error("addCharacter() -> must be called before story starts");t&&r?(a.has(t)&&console.error('addCharacter() -> overwriting character "'+t+'"'),a.set(t,{displayName:e,image:r})):console.error("addCharacter() -> invalid arguments")}function e(t,e,r,s){var n=$(document.createElement("div")).addClass(Util.slugify(e)+" say"),i=a.has(e)?a.get(e).image:null,o=$(document.createElement("img")).attr("src",s||i||"");o.attr("src")&&o.attr("src").trim()&&n.append(o);var c=e.toUpperFirst();return a.has(e)&&a.get(e).displayName&&(c=a.get(e).displayName),n.append($(document.createElement("p")).wiki(c)).append($(document.createElement("p")).wiki(r)),t&&(t instanceof $||(t=$(t)),n.appendTo(t)),n}setup.say=e,setup.addCharacter=t,Macro.add("character",{handler:function(){t(this.args[0],this.args[1],this.args[2])}}),$(document).one(":passagestart",(function(){var t=Array.from(a.keys());t.push("say"),Macro.add(t,{tags:null,handler:function(){"say"!==this.name?e(this.output,this.name,this.payload[0].contents):e(this.output,this.args[0],this.payload[0].contents,this.args[1])}})}))}();
@@ -123,16 +128,16 @@ a{
     &lt;&lt;label &#39;$confidence %&#39;&gt;&gt;
 &lt;&lt;/newmeter&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Start" tags="" position="225,100" size="100,100">&lt;&lt;set $confidence to 75, $maxConfidence to 100&gt;&gt;
 Halie opens the door and someone catches her attention.
-She turns toward the other girl standing in her room, and the girl looks back at Halie with disgust in her eyes.
-
-&lt;&lt;person&gt;&gt;Your face looks disgusting today.&lt;&lt;/person&gt;&gt;
- 
-Halie is slightly taken aback, although she is not surprised since a lot of Halie&#39;s conversations with her always start like this.
-
+&lt;&lt;timed 5s&gt;&gt;She turns toward the other girl standing in her room, and the girl looks back at Halie with disgust in her eyes.&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 10s&gt;&gt;
+&lt;&lt;person&gt;&gt;Your face looks disgusting today.&lt;&lt;/person&gt;&gt;&lt;&lt;/timed&gt;&gt;
+ &lt;&lt;timed 15s&gt;&gt;
+Halie is slightly taken aback, although she is not surprised since a lot of Halie&#39;s conversations with her always start like this.&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 20s&gt;&gt;
 Halie 1 responds, &quot;...&quot;
 [[Does the outfit look cute though?|outfit]]
 [[I think I look good.|looks][$confidence to $confidence += 2]]
-
+&lt;&lt;/timed&gt;&gt;
 /*outfit passage */</tw-passagedata><tw-passagedata pid="3" name="outfit" tags="" position="350,100" size="100,100">&lt;&lt;Halie&gt;&gt;Does the outfit look cute though?&lt;&lt;/Halie&gt;&gt;
 The girl looks at Halie up and down.
 
@@ -207,7 +212,7 @@ She undoes the braid, twists and puts her hair up into a donut.
 &lt;&lt;person&gt;&gt;UGH. Your hair is so flat and thin.&lt;&lt;/person&gt;&gt;
 
 She shifts her focus back to hair and starts ruffling it in an ineffective attempt to give it volume.
-Defeated, Halie accepts the volumeless-ness of her hair. &quot;...&quot; /*+1 to confidence */
+Defeated, Halie accepts that she can&#39;t do much to change it. &quot;...&quot; /*-1 to confidence */
 
 [[I think I&#39;ll braid my hair|aCup]]
 [[I can try other hairstyles..|diffHair]]
@@ -217,7 +222,7 @@ Defeated, Halie accepts the volumeless-ness of her hair. &quot;...&quot; /*+1 to
 
 Before Halie could start styling her hair, she receives another unsolicited criticism.
 
-&lt;&lt;person&gt;&gt;I don&#39;t think any hairstyle will suit your flat hair. That top doesn&#39;t even work with your flat chest.&lt;&lt;/person&gt;&gt;
+&lt;&lt;person&gt;&gt;I don&#39;t think any hairstyle will suit your flat hair. Even that top doesn&#39;t even work with your flat chest.&lt;&lt;/person&gt;&gt;
 /* -2 to confidence */
 Halie is starting to feel drained from the conversation with this person, but at the same time she can&#39;t bring herself to leave.
 Instead she encourages the conversation forward. &quot;...&quot;
@@ -237,8 +242,8 @@ she fixes her gaze toward the part of herself she tries to ignore. &quot;...&quo
 
 /*likeOutfit passage */</tw-passagedata><tw-passagedata pid="15" name="likeOutfit" tags="" position="600,225" size="100,100">&lt;&lt;Halie&gt;&gt;I like what I&#39;m wearing though.&lt;&lt;/Halie&gt;&gt;
 &lt;&lt;person&gt;&gt;I like the outfit too. The outfit isn&#39;t the problem, it&#39;s you.&lt;&lt;/person&gt;&gt;
-
-&quot;You are so brutal...&quot; Halie&#39;s throat feel consricted from holding back tears. &quot;...but...&quot;
+&lt;&lt;Halie&gt;&gt;&quot;You are so brutal...&quot;&lt;&lt;/Halie&gt;&gt;
+Halie&#39;s throat feel consricted from holding back tears. &quot;...but...&quot;
 [[(take shirt off)|naked]]
 [[I&#39;ll stick with this outfit|sameOutfit][$confidence to $confidence += 5]]
 /*end of likeOutfit passage */
@@ -249,12 +254,15 @@ Halie takes her shirt off
 &lt;&lt;person&gt;&gt;...did you just... strip in front of me?
 God, your torso looks like a boy&#39;s.&lt;&lt;/person&gt;&gt;
 
+&quot;Woah...&quot; Halie is unsure how to respond.
+
 [[Woah. Ok. I&#39;m not THAT flat...|defend][$confidence to $confidence -= 5]]
 [[(laugh)|laugh]]
 /*end of naked passage */
 
 /*laugh passage */</tw-passagedata><tw-passagedata pid="17" name="laugh" tags="" position="850,225" size="100,100">&lt;&lt;Halie&gt;&gt;HAHAHAAHHAAAAHAHA That was lowkey funny.&lt;&lt;/Halie&gt;&gt;
-&lt;&lt;person&gt;&gt;Just put your shirt back on, please&lt;&lt;/person&gt;&gt;
+&lt;&lt;person&gt;&gt;Just put your shirt back on, please.&lt;&lt;/person&gt;&gt;
+&lt;&lt;Halie&gt;&gt;Gosh, I was just trying to lighten up the mood...&lt;&lt;/person&gt;&gt;
 
 [[(put shirt back on)|dressed]]
 [[(stay shirtless)|shirtless]]
@@ -263,46 +271,54 @@ God, your torso looks like a boy&#39;s.&lt;&lt;/person&gt;&gt;
 /*defend passage */</tw-passagedata><tw-passagedata pid="18" name="defend" tags="" position="975,225" size="100,100">&lt;&lt;Halie&gt;&gt;Woah. Ok. I&#39;m not THAT flat...&lt;&lt;/Halie&gt;&gt;
 &lt;&lt;person&gt;&gt;Just put your shirt back on, please&lt;&lt;/person&gt;&gt;
 
-[[(put shirt back on)|dressed]]
+Halie stares at the person wanting to say more to defend herself, but she can&#39;t. The person only pointed out a fact./*confidence -5 */
+
+[[(put shirt back on)|dressed][$confidence to $confidence += 1]]
 [[(stay shirtless)|shirtless]]
 /*end of defend passage */
 
-/*shirtless passage */</tw-passagedata><tw-passagedata pid="19" name="shirtless" tags="" position="1100,225" size="100,100">&lt;&lt;Halie&gt;&gt;Is it really that bad? Do you think there&#39;s at least one person that thinks I&#39;m attractive?&lt;&lt;/Halie&gt;&gt;
-&lt;&lt;person&gt;&gt;I think you should &lt;&lt;/person&gt;&gt;
+/*shirtless passage */</tw-passagedata><tw-passagedata pid="19" name="shirtless" tags="" position="1100,225" size="100,100">&lt;&lt;Halie&gt;&gt;Is it really that bad?&lt;&lt;/Halie&gt;&gt;
+&lt;&lt;person&gt;&gt;Yes. Now put your shirt back on. Seriously.&lt;&lt;/person&gt;&gt;
+/*-5 confidence*/With her jaws clenched, Halie nodded.
+
+[[(put shirt back on)|dressed]]
+/*end of shirtless passage*/
 /*dressed passage */</tw-passagedata><tw-passagedata pid="20" name="dressed" tags="" position="1225,225" size="100,100">&lt;&lt;if $naked&gt;&gt;
 Halie puts her shirt back on and starts questioning the person that she is and how other people perceive her.
 &lt;&lt;/if&gt;&gt;
 Halie starts questioning the person that she is and how other people perceive her.
 &lt;&lt;Halie&gt;&gt;Do you think I&#39;m interesting enough to be around?&lt;&lt;/Halie&gt;&gt;
-&lt;&lt;person&gt;&gt;Do YOU think you&#39;re interesting enough to be around?&lt;&lt;/person&gt;&gt;
+&lt;&lt;person&gt;&gt;I don&#39;t know. Are you?&lt;&lt;/person&gt;&gt;
 &lt;&lt;Halie&gt;&gt;um...&lt;&lt;/Halie&gt;&gt;
 
 [[Um...yes?|bonusPoint][$confidence to $confidence += 1]]
-[[I think I&#39;m done talking to myself for the day|mirror]]
+[[Um...I think I&#39;m done talking to myself for the day|mirror]]
 /*end of dressed passage */
 
 /*bonusPoint passage*//*add to Confidence */</tw-passagedata><tw-passagedata pid="21" name="bonusPoint" tags="" position="100,350" size="100,100">&lt;&lt;Halie&gt;&gt;Um...yes?&lt;&lt;/Halie&gt;&gt;
 &lt;&lt;person&gt;&gt;Wow, you sound so confident.&lt;&lt;/person&gt;&gt;
 
-[[(question your being)|dressed]]
-[[I think I&#39;m done talking to myself for the day|mirror]]
+Halie feels too drained to continue talking to this person, so she decides it&#39;s time to end it. &quot;...&quot;
+[[Um...I think I&#39;m done talking to myself for the day|mirror]]
 /*end of bonusPoint passage */
 
 /*sameOutfit passage */</tw-passagedata><tw-passagedata pid="22" name="sameOutfit" tags="" position="225,350" size="100,100">&lt;&lt;Halie&gt;&gt;I&#39;ll stick with this outfit.&lt;&lt;/Halie&gt;&gt;
 &lt;&lt;if $fixHair&gt;&gt;/*if fixHair is true */&lt;&lt;person&gt;&gt;So.. what now?&lt;&lt;/person&gt;&gt;
 
-    [[I think I&#39;m done talking to myself for the day|mirror]]
-    [[(question your being)|dressed]]
+Halie&#39;s brows furrows as she thinks, &quot;...&quot;
+    [[Um...I think I&#39;m done talking to myself for the day|mirror]]
+    [[(question yourself)|dressed]]
 &lt;&lt;else&gt;&gt;&lt;&lt;person&gt;&gt;Fix your hair.&lt;&lt;/person&gt;&gt;
 
+Halie stares at the girl appalled by her arrogance, but Halie complies.
     [[try on hairstyles|hair]]
 &lt;&lt;/if&gt;&gt;
 /*end of sameOutfit passage */
 
-/*mirror passage */</tw-passagedata><tw-passagedata pid="23" name="mirror" tags="" position="350,350" size="100,100">&lt;&lt;Halie&gt;&gt;I think I&#39;m done talking to myself for the day.&lt;&lt;/Halie&gt;&gt;
+/*mirror passage */</tw-passagedata><tw-passagedata pid="23" name="mirror" tags="" position="350,350" size="100,100">&lt;&lt;Halie&gt;&gt;Um...I think I&#39;m done talking to myself for the day.&lt;&lt;/Halie&gt;&gt;
 &lt;&lt;person&gt;&gt;Wait wha--&lt;&lt;/person&gt;&gt;
-
-Person 1 takes one last look at her reflection on the mirror then walks away.
+/*drawing of mirror */
+Halie takes one last look at her reflection on the mirror then walks away.
 /*probably add an illustration of mirror or if you have time add short animation */
 
 /*end of mirror passage */</tw-passagedata><tw-passagedata pid="24" name="PassageFooter" tags="" position="475,350" size="100,100">Confidence: &lt;&lt;showmeter &#39;confidence&#39; `$confidence / $maxConfidence`&gt;&gt;</tw-passagedata></tw-storydata>

@@ -23,16 +23,16 @@ The Self
 :: Start
 <<set $confidence to 75, $maxConfidence to 100>>
 Halie opens the door and someone catches her attention.
-She turns toward the other girl standing in her room, and the girl looks back at Halie with disgust in her eyes.
-
-<<person>>Your face looks disgusting today.<</person>>
- 
-Halie is slightly taken aback, although she is not surprised since a lot of Halie's conversations with her always start like this.
-
+<<timed 5s>>She turns toward the other girl standing in her room, and the girl looks back at Halie with disgust in her eyes.<</timed>>
+<<timed 10s>>
+<<person>>Your face looks disgusting today.<</person>><</timed>>
+ <<timed 15s>>
+Halie is slightly taken aback, although she is not surprised since a lot of Halie's conversations with her always start like this.<</timed>>
+<<timed 20s>>
 Halie 1 responds, "..."
 [[Does the outfit look cute though?|outfit]]
 [[I think I look good.|looks][$confidence to $confidence += 2]]
-
+<</timed>>
 /*outfit passage */
 :: outfit
 <<Halie>>Does the outfit look cute though?<</Halie>>
@@ -129,7 +129,7 @@ Halie looks away from her hair to see the girl wearing a scrunched up face of di
 <<person>>UGH. Your hair is so flat and thin.<</person>>
 
 She shifts her focus back to hair and starts ruffling it in an ineffective attempt to give it volume.
-Defeated, Halie accepts the volumeless-ness of her hair. "..." /*+1 to confidence */
+Defeated, Halie accepts that she can't do much to change it. "..." /*-1 to confidence */
 
 [[I think I'll braid my hair|aCup]]
 [[I can try other hairstyles..|diffHair]]
@@ -141,7 +141,7 @@ Defeated, Halie accepts the volumeless-ness of her hair. "..." /*+1 to confidenc
 
 Before Halie could start styling her hair, she receives another unsolicited criticism.
 
-<<person>>I don't think any hairstyle will suit your flat hair. That top doesn't even work with your flat chest.<</person>>
+<<person>>I don't think any hairstyle will suit your flat hair. Even that top doesn't even work with your flat chest.<</person>>
 /* -2 to confidence */
 Halie is starting to feel drained from the conversation with this person, but at the same time she can't bring herself to leave.
 Instead she encourages the conversation forward. "..."
@@ -165,8 +165,8 @@ she fixes her gaze toward the part of herself she tries to ignore. "..."
 :: likeOutfit
 <<Halie>>I like what I'm wearing though.<</Halie>>
 <<person>>I like the outfit too. The outfit isn't the problem, it's you.<</person>>
-
-"You are so brutal..." Halie's throat feel consricted from holding back tears. "...but..."
+<<Halie>>"You are so brutal..."<</Halie>>
+Halie's throat feel consricted from holding back tears. "...but..."
 [[(take shirt off)|naked]]
 [[I'll stick with this outfit|sameOutfit][$confidence to $confidence += 5]]
 /*end of likeOutfit passage */
@@ -179,6 +179,8 @@ Halie takes her shirt off
 <<person>>...did you just... strip in front of me?
 God, your torso looks like a boy's.<</person>>
 
+"Woah..." Halie is unsure how to respond.
+
 [[Woah. Ok. I'm not THAT flat...|defend][$confidence to $confidence -= 5]]
 [[(laugh)|laugh]]
 /*end of naked passage */
@@ -186,7 +188,8 @@ God, your torso looks like a boy's.<</person>>
 /*laugh passage */
 :: laugh
 <<Halie>>HAHAHAAHHAAAAHAHA That was lowkey funny.<</Halie>>
-<<person>>Just put your shirt back on, please<</person>>
+<<person>>Just put your shirt back on, please.<</person>>
+<<Halie>>Gosh, I was just trying to lighten up the mood...<</person>>
 
 [[(put shirt back on)|dressed]]
 [[(stay shirtless)|shirtless]]
@@ -197,14 +200,20 @@ God, your torso looks like a boy's.<</person>>
 <<Halie>>Woah. Ok. I'm not THAT flat...<</Halie>>
 <<person>>Just put your shirt back on, please<</person>>
 
-[[(put shirt back on)|dressed]]
+Halie stares at the person wanting to say more to defend herself, but she can't. The person only pointed out a fact./*confidence -5 */
+
+[[(put shirt back on)|dressed][$confidence to $confidence += 1]]
 [[(stay shirtless)|shirtless]]
 /*end of defend passage */
 
 /*shirtless passage */
 :: shirtless
-<<Halie>>Is it really that bad? Do you think there's at least one person that thinks I'm attractive?<</Halie>>
-<<person>>I think you should <</person>>
+<<Halie>>Is it really that bad?<</Halie>>
+<<person>>Yes. Now put your shirt back on. Seriously.<</person>>
+/*-5 confidence*/With her jaws clenched, Halie nodded.
+
+[[(put shirt back on)|dressed]]
+/*end of shirtless passage*/
 /*dressed passage */
 :: dressed
 <<if $naked>>
@@ -212,11 +221,11 @@ Halie puts her shirt back on and starts questioning the person that she is and h
 <</if>>
 Halie starts questioning the person that she is and how other people perceive her.
 <<Halie>>Do you think I'm interesting enough to be around?<</Halie>>
-<<person>>Do YOU think you're interesting enough to be around?<</person>>
+<<person>>I don't know. Are you?<</person>>
 <<Halie>>um...<</Halie>>
 
 [[Um...yes?|bonusPoint][$confidence to $confidence += 1]]
-[[I think I'm done talking to myself for the day|mirror]]
+[[Um...I think I'm done talking to myself for the day|mirror]]
 /*end of dressed passage */
 
 /*bonusPoint passage*//*add to Confidence */
@@ -224,8 +233,8 @@ Halie starts questioning the person that she is and how other people perceive he
 <<Halie>>Um...yes?<</Halie>>
 <<person>>Wow, you sound so confident.<</person>>
 
-[[(question your being)|dressed]]
-[[I think I'm done talking to myself for the day|mirror]]
+Halie feels too drained to continue talking to this person, so she decides it's time to end it. "..."
+[[Um...I think I'm done talking to myself for the day|mirror]]
 /*end of bonusPoint passage */
 
 /*sameOutfit passage */
@@ -233,20 +242,22 @@ Halie starts questioning the person that she is and how other people perceive he
 <<Halie>>I'll stick with this outfit.<</Halie>>
 <<if $fixHair>>/*if fixHair is true */<<person>>So.. what now?<</person>>
 
-    [[I think I'm done talking to myself for the day|mirror]]
-    [[(question your being)|dressed]]
+Halie's brows furrows as she thinks, "..."
+    [[Um...I think I'm done talking to myself for the day|mirror]]
+    [[(question yourself)|dressed]]
 <<else>><<person>>Fix your hair.<</person>>
 
+Halie stares at the girl appalled by her arrogance, but Halie complies.
     [[try on hairstyles|hair]]
 <</if>>
 /*end of sameOutfit passage */
 
 /*mirror passage */
 :: mirror
-<<Halie>>I think I'm done talking to myself for the day.<</Halie>>
+<<Halie>>Um...I think I'm done talking to myself for the day.<</Halie>>
 <<person>>Wait wha--<</person>>
-
-Person 1 takes one last look at her reflection on the mirror then walks away.
+/*drawing of mirror */
+Halie takes one last look at her reflection on the mirror then walks away.
 /*probably add an illustration of mirror or if you have time add short animation */
 
 /*end of mirror passage */
