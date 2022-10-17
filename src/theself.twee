@@ -23,14 +23,14 @@ The Self
 :: Start
 <<set $confidence to 75, $maxConfidence to 100>>
 <<fadein 2s>>Halie opens the door and someone catches her attention.<</fadein>>
-<<fadein 5s>>She turns toward the other girl standing in her room, and the girl looks back at Halie with disgust in her eyes.<</fadein>>
-<<fadein 5s>>
+<<fadein 5s 2s>>She turns toward the other girl standing in her room, and the girl looks back at Halie with disgust in her eyes.<</fadein>>
+<<fadein 5s 5s>>
 <<person>>Your face looks disgusting today.<</person>><</fadein>>
- <<fadein 10s>>
+<<fadein 5s 6s>>
 Halie is slightly taken aback, although she is not surprised since a lot of Halie's conversations with her always start like this.<</fadein>>
-<<fadein 15s>>
+<<fadein 12s 10s>>
 Halie 1 responds, "..."<</fadein>>
-<<fadein 16s>>[[Does the outfit look cute though?|outfit]]
+<<fadein 13s 12s>>[[Does the outfit look cute though?|outfit]]
 [[I think I look good.|looks][$confidence to $confidence += 2]]
 <</fadein>>
 /*outfit passage */
@@ -142,114 +142,108 @@ Instead she encourages the conversation forward. "..."<</fadein>>
 [[I like what I'm wearing though|likeOutfit]]<</fadein>>
 /*aCup passage */
 :: aCup
-<<Halie>>I think I'll braid my hair.<</Halie>>
+<<fadein 1s>><<Halie>>I think I'll braid my hair.<</Halie>><</fadein>>
 
-Although she agrees that her fine hair gives no justice to any hairstyle she puts on, Halie braids her hair anyway because she wants to. /* +2 to confidence */
-<<set $confidence to $confidence+=2>>
-<<person>>Looks horrible. Anyway, that top does not work well with your flat chest.<</person>>
+<<fadein 2s>>Although she agrees that her fine hair gives no justice to any hairstyle she puts on, Halie braids her hair anyway because she wants to. /* +2 to confidence */
+<<set $confidence to $confidence+=2>><</fadein>>
+<<fadein 3s>><<person>>Looks horrible. Anyway, that top does not work well with your flat chest.<</person>><</fadein>>
 
-"Of course she brings it up, she always does," Halie thinks to herself. Against her better judgement knowing it won't do her any good,
-she fixes her gaze toward the part of herself she tries to ignore. "..." 
-[[I like what I'm wearing though|likeOutfit][$confidence to $confidence += 1]]
-[[(take shirt off)|naked]]
+<<fadein 4s>>"Of course she brings it up, she always does," Halie thinks to herself. Against her better judgement knowing it won't do her any good,
+she fixes her gaze toward the part of herself she tries to ignore. "..." <</fadein>>
+<<fadein 5s>>[[I like what I'm wearing though|likeOutfit][$confidence to $confidence += 1]]
+[[(take shirt off)|naked]]<</fadein>>
 /*end of aCup passage */
 /*likeOutfit passage */
 :: likeOutfit
-<<Halie>>I like what I'm wearing though.<</Halie>>
-<<person>>I like the outfit too. The outfit isn't the problem, it's you.<</person>>
-<<Halie>>"You are so brutal..."<</Halie>>
-Halie's throat feel consricted from holding back tears. "...but..."
-[[(take shirt off)|naked]]
-[[I'll stick with this outfit|sameOutfit][$confidence to $confidence += 5]]
+<<fadein 1s>><<Halie>>I like what I'm wearing though.<</Halie>><</fadein>>
+<<fadein 2s>><<person>>I like the outfit too. The outfit isn't the problem, it's you.<</person>><</fadein>>
+<<fadein 3s>><<Halie>>"You are so brutal..."<</Halie>><</fadein>>
+<<fadein 4s>>>Halie's throat feel consricted from holding back tears. "...but..."<</fadein>>
+<<fadein 5s>>[[(take shirt off)|naked]]
+[[I'll stick with this outfit|sameOutfit][$confidence to $confidence += 5]]<</fadein>>
 /*end of likeOutfit passage */
-
 /*naked passage */
 :: naked
 <<set $naked to true>>
-Halie takes her shirt off
-<<Halie>> ...I know.. There's literally nothing there. Maybe a little bump, but it's basically nothing.<</Halie>>
-<<person>>...did you just... strip in front of me?
-God, your torso looks like a boy's.<</person>>
+<<fadein 1s>>Halie takes her shirt off<</fadein>>
+<<fadein 2s>><<Halie>> ...I know.. There's literally nothing there. Maybe a little bump, but it's basically nothing.<</Halie>><</fadein>>
+<<fadein 4s>><<person>>...did you just... strip in front of me?
+God, your torso looks like a boy's.<</person>><</fadein>>
+<<fadein 4s>><<Halie>>"Woah..." <</Halie>><</fadein>>
 
-"Woah..." Halie is unsure how to respond.
-
-[[Woah. Ok. I'm not THAT flat...|defend][$confidence to $confidence -= 5]]
-[[(laugh)|laugh]]
+<<fadein 5s>>
+Halie is unsure how to respond.<</fadein>>
+<<fadein 6s>>[[Woah. Ok. I'm not THAT flat...|defend][$confidence to $confidence -= 5]]
+[[(laugh)|laugh]]<</fadein>>
 /*end of naked passage */
-
 /*laugh passage */
 :: laugh
-<<Halie>>HAHAHAAHHAAAAHAHA That was lowkey funny.<</Halie>>
-<<person>>Just put your shirt back on, please.<</person>>
-<<Halie>>Gosh, I was just trying to lighten up the mood...<</Halie>>
-
+<<fadein 1s>><<Halie>>HAHAHAAHHAAAAHAHA That was lowkey funny.<</Halie>><</fadein>>
+<<fadein 2s>><<person>>Just put your shirt back on, please.<</person>><</fadein>>
+<<fadein 3s>><<Halie>>Gosh, I was just trying to lighten up the mood...<</Halie>><</fadein>>
+<<fadein 4s>>
 [[(put shirt back on)|dressed]]
-[[(stay shirtless)|shirtless]]
+[[(stay shirtless)|shirtless]]<</fadein>>
 /*end of laugh passage */
-
 /*defend passage */
 :: defend
-<<Halie>>Woah. Ok. I'm not THAT flat...<</Halie>>
-<<person>>Just put your shirt back on, please<</person>>
-
+<<fadein 1s>><<Halie>>Woah. Ok. I'm not THAT flat...<</Halie>><</fadein>>
+<<fadein 2s>><<person>>Just put your shirt back on, please<</person>><</fadein>>
+<<fadein 3s>>
 Halie stares at the person wanting to say more to defend herself, but she can't. The person only pointed out a fact./*confidence -5 */
-<<set $confidence to $confidence-=5>>
-[[(put shirt back on)|dressed][$confidence to $confidence += 1]]
-[[(stay shirtless)|shirtless]]
+<<set $confidence to $confidence-=5>><</fadein>>
+<<fadein 5s>>[[(put shirt back on)|dressed][$confidence to $confidence += 1]]
+[[(stay shirtless)|shirtless]]<</fadein>>
 /*end of defend passage */
-
 /*shirtless passage */
 :: shirtless
-<<Halie>>Is it really that bad?<</Halie>>
-<<person>>Yes. Now put your shirt back on. Seriously.<</person>>
-<<set $confidence to $confidence-=5>>With her jaws clenched, Halie nodded.
+<<fadein 1s>><<Halie>>Is it really that bad?<</Halie>><</fadein>>
+<<fadein 2s>><<person>>Yes. Now put your shirt back on. Seriously.<</person>><</fadein>>
+<<fadein 5s>><<set $confidence to $confidence-=5>>With her jaws clenched, Halie nodded.
 
-[[(put shirt back on)|dressed]]
+[[(put shirt back on)|dressed]]<</fadein>>
 /*end of shirtless passage*/
 /*dressed passage */
 :: dressed
-<<if $naked>>
-Halie puts her shirt back on and starts questioning the person that she is and how other people perceive her.
-<</if>>
-Halie starts questioning the person that she is and how other people perceive her.
-<<Halie>>Do you think I'm interesting enough to be around?<</Halie>>
-<<person>>I don't know. Are you?<</person>>
-<<Halie>>um...<</Halie>>
-
+<<if $naked>><<fadein 1s>>Halie puts her shirt back on and starts questioning the person that she is and how other people perceive her.<</fadein>>
+<</if>><<fadein 1s>>Halie starts questioning the person that she is and how other people perceive her.<</fadein>>
+<<fadein 4s>><<Halie>>Do you think I'm interesting enough to be around?<</Halie>><</fadein>>
+<<fadein 5s>><<person>>I don't know. Are you?<</person>><<>>
+<<Halie>>um...<</Halie>><</fadein>>
+<<fadein 6s>>
 [[Um...yes?|bonusPoint][$confidence to $confidence += 1]]
-[[Um...I think I'm done talking to myself for the day|mirror]]
+[[Um...I think I'm done talking to myself for the day|mirror]]<<fadein>>
 /*end of dressed passage */
 
 /*bonusPoint passage*//*add to Confidence */
 :: bonusPoint
-<<Halie>>Um...yes?<</Halie>>
-<<person>>Wow, you sound so confident.<</person>>
-
-Halie feels too drained to continue talking to this person, so she decides it's time to end it. "..."
-[[Um...I think I'm done talking to myself for the day|mirror]]
+<<fadein 1s>><<Halie>>Um...yes?<</Halie>><</fadein>>
+<<fadein 2s>><<person>>Wow, you sound so confident.<</person>><</fadein>>
+<<fadein 3s>>
+Halie feels too drained to continue talking to this person, so she decides it's time to end it. "..."<</fadein>>
+<<fadein 4s>>[[Um...I think I'm done talking to myself for the day|mirror]]<</fadein>>
 /*end of bonusPoint passage */
 
 /*sameOutfit passage */
 :: sameOutfit
-<<Halie>>I'll stick with this outfit.<</Halie>>
-<<if $fixHair>>/*if fixHair is true */<<person>>So.. what now?<</person>>
+<<fadein 1s>><<Halie>>I'll stick with this outfit.<</Halie>><</fadein>>
+<<if $fixHair>>/*if fixHair is true */<<fadein 2s>><<person>>So.. what now?<</person>><</fadein>>
 
-Halie's brows furrows as she thinks, "..."
-    [[Um...I think I'm done talking to myself for the day|mirror]]
-    [[(question yourself)|dressed]]
-<<else>><<person>>Fix your hair.<</person>>
-
-Halie stares at the girl appalled by her arrogance, but Halie complies.
-    [[try on hairstyles|hair]]
+<<fadein 3s>>Halie's brows furrows as she thinks, "..."<</fadein>>
+    <<fadein 4s>>[[Um...I think I'm done talking to myself for the day|mirror]]
+    [[(question yourself)|dressed]]<</fadein>>
+<<else>><<fadein 2s>><<person>>Whatever. Fix your hair.<</person>><</fadein>>
+<<fadein 3s>>
+Halie stares at the girl appalled by her arrogance, but Halie complies.<</fadein>>
+    <<fadein 4s>> [[(try on hairstyles)|hair]]<</fadein>>
 <</if>>
 /*end of sameOutfit passage */
-
 /*mirror passage */
 :: mirror
-<<Halie>>Um...I think I'm done talking to myself for the day.<</Halie>>
-<<person>>Wait wha--<</person>>
+<<fadein 5s>><<fadeout 5s 5s>><<Halie>>Um...I think I'm done talking to myself for the day.<</Halie>>
+<<person>>Wait wha--<</person>><</fadeout>><</fadein>>
 /*drawing of mirror */
-Halie takes one last look at her reflection on the mirror then walks away.
+<<fadein 8s 10s>>Halie takes one last look at her reflection on the mirror then walks away.<</fadein>>
 /*probably add an illustration of mirror or if you have time add short animation */
 
 /*end of mirror passage */
