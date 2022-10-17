@@ -212,7 +212,7 @@ Halie stares at the person wanting to say more to defend herself, but she can't.
 <<Halie>>um...<</Halie>><</fadein>>
 <<fadein 6s>>
 [[Um...yes?|bonusPoint][$confidence to $confidence += 1]]
-[[Um...I think I'm done talking to myself for the day|mirror]]<<fadein>>
+[[Um...I think I'm done talking to myself for the day|mirror]]<</fadein>>
 /*end of dressed passage */
 
 /*bonusPoint passage*//*add to Confidence */
