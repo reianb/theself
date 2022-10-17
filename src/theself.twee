@@ -208,7 +208,7 @@ Halie stares at the person wanting to say more to defend herself, but she can't.
 <<if $naked>><<fadein 1s>>Halie puts her shirt back on and starts questioning the person that she is and how other people perceive her.<</fadein>>
 <</if>><<fadein 1s>>Halie starts questioning the person that she is and how other people perceive her.<</fadein>>
 <<fadein 4s>><<Halie>>Do you think I'm interesting enough to be around?<</Halie>><</fadein>>
-<<fadein 5s>><<person>>I don't know. Are you?<</person>><<>>
+<<fadein 5s>><<person>>I don't know. Are you?<</person>>
 <<Halie>>um...<</Halie>><</fadein>>
 <<fadein 6s>>
 [[Um...yes?|bonusPoint][$confidence to $confidence += 1]]
