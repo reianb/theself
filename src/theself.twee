@@ -243,7 +243,7 @@ Halie stares at the girl appalled by her arrogance, but Halie complies.<</fadein
 <<fadein 5s>><<fadeout 5s 5s>><<Halie>>Um...I think I'm done talking to myself for the day.<</Halie>>
 <<person>>Wait wha--<</person>><</fadeout>><</fadein>>
 /*drawing of mirror */
-<<fadein 8s 10s>>Halie takes one last look at her reflection on the mirror then walks away.<</fadein>>
+<<fadein 8s 10s>><<fadeout 10s 15s>>Halie takes one last look at her reflection on the mirror then walks away.<</fadeout>><</fadein>>
 /*probably add an illustration of mirror or if you have time add short animation */
 
 /*end of mirror passage */
